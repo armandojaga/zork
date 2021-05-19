@@ -13,10 +13,61 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\scenes">
+      <UniqueIdentifier>{6d716a1b-3782-4f47-a203-a526b3f1db20}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+      <Extensions>scene</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Zork.cpp">
+    <None Include="forest_trail.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="start.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="forest.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="cabin.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="water_well.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="tree_top.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="cave.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+    <None Include="deep_forest.scene">
+      <Filter>Source Files\scenes</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SceneParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,12 @@
+forest
+Forest
+a dense forest
+A dense forest full of shadows, there is a huge tree, maybe you can climb it
+#PATHS#
+SOUTH|forest_trail
+NE|deep_forest
+SE|cabin
+UP|tree_top
+#ITEMS#
+Key|KEY|0|NONE
+#FOES#

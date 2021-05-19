@@ -1,0 +1,10 @@
+tree_top
+Tree top
+the top of the tree
+The top of the tall three
+#PATHS#
+DOWN|forest
+#ITEMS#
+Bow|RANGE_WEAPON|1|NONE
+Arrow|AMMO|25|NONE
+#FOES#

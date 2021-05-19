@@ -1,0 +1,10 @@
+cave
+Cave
+a small cave
+A cold cave with a stench of death
+DARK
+#PATHS#
+WEST|cabin
+#ITEMS#
+#FOES#
+Bear|A huge bear|100|15
