@@ -52,6 +52,32 @@ void Scene::setItems(list<Item*> items)
 	this->items = items;
 }
 
+void Scene::addItem(Item* item)
+{
+	this->items.push_back(item);
+}
+
+void Scene::removeItem(Item* item)
+{
+	this->items.remove(item);
+}
+
+void Scene::addEnemy(Character* enemy)
+{
+	enemy->setCurrentScene(this);
+	this->enemies.push_back(enemy);
+}
+
+void Scene::removeEnemy(Character* enemy)
+{
+	this->enemies.remove(enemy);
+}
+
+string Scene::getBrief()
+{
+	return "";
+}
+
 Item* Scene::take(string& item)
 {
 	return Util::find<Item>(this->items, [=](const Item* i) { return i->getName() == item; });

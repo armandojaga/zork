@@ -151,7 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Foe.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -179,7 +182,10 @@
     <None Include="water_well.scene" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Foe.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Hero.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneParser.h" />

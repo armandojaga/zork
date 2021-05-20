@@ -3,7 +3,10 @@
 #include <list>
 #include <map>
 
+#include "Character.h"
 #include "Item.h"
+
+class Character;
 
 using namespace std;
 
@@ -31,7 +34,7 @@ private:
 	bool dark;
 	map<Direction, Scene*> paths;
 	list<Item*> items;
-	
+	list<Character*> enemies;
 
 public:
 	Scene();
@@ -42,7 +45,9 @@ public:
 	string getShortDescription() const { return this->shortDescription; }
 	string getDescription() const { return this->description; }
 	bool isDark() const { return this->dark; }
-
+	bool hasEnemies() const { return !this->enemies.empty(); }
+	list<Character*> getEnemies() const { return this->enemies; }
+	
 	Scene* getPath(Direction direction);
 	bool hasPath(Direction direction);
 
@@ -57,4 +62,11 @@ public:
 	Item* take(string& container, string& item);
 	list<Item*> takeAll();
 	void setItems(list<Item*> items);
+	void addItem(Item* item);
+	void removeItem(Item* item);
+	void addEnemy(Character* enemy);
+	void removeEnemy(Character* enemy);
+
+	string getBrief();
+
 };
