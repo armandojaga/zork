@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Game {
+class Game
+{
 private:
 	SceneParser* sceneParser;
 	Hero* hero;

@@ -1,11 +1,11 @@
 #include "Character.h"
 
 Character::Character(string name, string description, int health, int damage):
-name(name), description(description), health(health), damage(damage)
+	name(name), description(description), health(health), damage(damage)
 {
 }
 
-void Character::attack(Character * enemy)
+void Character::attack(Character* enemy)
 {
 }
 

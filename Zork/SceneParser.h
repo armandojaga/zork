@@ -14,12 +14,10 @@ class SceneParser
 private:
 	list<Scene*> scenes;
 	list<string> loadedScenes;
-	list<string> Split(string &s) const;
+	list<string> Split(string& s) const;
 	Item* getItem(list<Item*> items, const string& item);
 public:
 	SceneParser();
 	~SceneParser();
 	list<Scene*> Parse(const string& sceneFile);
 };
-
-

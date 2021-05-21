@@ -9,7 +9,7 @@ using namespace std;
 class Util
 {
 public:
-	template<typename T>
+	template <typename T>
 	static list<T> filter(const list<T>& source, function<bool(const T&)> predicate)
 	{
 		list<T> filtered;
@@ -17,12 +17,12 @@ public:
 		return filtered;
 	}
 
-	template<typename T>
+	template <typename T>
 	static T* find(const list<T*> source, function<bool(const T*)> predicate)
 	{
 		for (auto i : source)
 		{
-			if(predicate(i))
+			if (predicate(i))
 			{
 				return i;
 			}

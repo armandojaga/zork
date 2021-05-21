@@ -20,16 +20,16 @@ enum Direction
 };
 
 static const unordered_map<string, Direction> directionMap = {
-	{"NORTH", NORTH},{"N", NORTH},
-	{"SOUTH", SOUTH},{"S", SOUTH},
-	{"EAST", EAST},{"E", EAST},
-	{"WEST", WEST},{"W", WEST},
-	{"SE", SE},{"SOUTHEAST",SE},
-	{"SW", SW},{"SOUTHWEST",SW},
-	{"NE", NE},{"NORTHEAST",NE},
-	{"NW", NW},{"NORTHWEST",NW},
-	{"UP", UP},{"U", UP},
-	{"DOWN", DOWN},{"D", DOWN}
+	{"NORTH", NORTH}, {"N", NORTH},
+	{"SOUTH", SOUTH}, {"S", SOUTH},
+	{"EAST", EAST}, {"E", EAST},
+	{"WEST", WEST}, {"W", WEST},
+	{"SE", SE}, {"SOUTHEAST", SE},
+	{"SW", SW}, {"SOUTHWEST", SW},
+	{"NE", NE}, {"NORTHEAST", NE},
+	{"NW", NW}, {"NORTHWEST", NW},
+	{"UP", UP}, {"U", UP},
+	{"DOWN", DOWN}, {"D", DOWN}
 };
 
 class Path
@@ -46,9 +46,11 @@ public:
 
 	static Direction directionFromName(string& directionName)
 	{
-		try {
+		try
+		{
 			return directionMap.at(directionName);
-		}catch(exception&)
+		}
+		catch (exception&)
 		{
 			return WRONG;
 		}

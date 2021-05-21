@@ -2,10 +2,10 @@
 #include <string>
 #include "Character.h"
 
-class Foe: public Character
+class Foe : public Character
 {
 public:
 	Foe(string name, string description, int health, int damage);
-	virtual ~Foe();
+	~Foe() override;
 	void printStats() override;
 };

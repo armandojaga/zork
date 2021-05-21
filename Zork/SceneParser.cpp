@@ -14,11 +14,11 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 {
 	list<string> pendingScenesToLoad;
 	bool loaded = find(loadedScenes.begin(), loadedScenes.end(), sceneFile) != loadedScenes.end();
-	if(loaded)
+	if (loaded)
 	{
 		return list<Scene*>();
 	}
-	
+
 	const string PATHS = "#PATHS#";
 	const string ITEMS = "#ITEMS#";
 	const string FOES = "#FOES#";
@@ -73,14 +73,14 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		}
 		string direction = tokens.front();
 		string sceneName = tokens.back();
-		Path* path = new Path(Path::directionFromName(direction), sceneName);
+		auto path = new Path(Path::directionFromName(direction), sceneName);
 		scene->addPath(path);
 
 		loaded = find(loadedScenes.begin(), loadedScenes.end(), sceneName) != loadedScenes.end();
-		if (!loaded) {
+		if (!loaded)
+		{
 			pendingScenesToLoad.push_back(sceneName);
 		}
-
 	}
 
 	//read items
@@ -176,7 +176,8 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		{
 			Item* item = getItem(sceneItems, tokens.front());
 			tokens.pop_front();
-			if (item) {
+			if (item)
+			{
 				foe->addItem(item);
 				scene->removeItem(item);
 			}
@@ -211,7 +212,7 @@ list<string> SceneParser::Split(string& s) const
 
 Item* SceneParser::getItem(list<Item*> items, const string& item)
 {
-	return Util::filter<Item*>(items, [=](const Item* i){ return i->getName() == item;}).front();
+	return Util::filter<Item*>(items, [=](const Item* i) { return i->getName() == item; }).front();
 }
 
 

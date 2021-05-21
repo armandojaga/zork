@@ -5,4 +5,3 @@ Path::Path(Direction direction, string& scene): direction(direction), scene(scen
 }
 
 Path::~Path() = default;
-
