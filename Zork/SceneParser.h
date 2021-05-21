@@ -12,13 +12,14 @@ class SceneParser
 	static const int ITEM_CONFIG_SIZE = 4;
 	static const int FOE_CONFIG_SIZE = 4;
 private:
+	list<Scene*> scenes;
 	list<string> loadedScenes;
-	map<string, string> pendingScenes;
 	list<string> Split(string &s) const;
+	Item* getItem(list<Item*> items, const string& item);
 public:
 	SceneParser();
 	~SceneParser();
-	Scene* Parse(const string& sceneFile);
+	list<Scene*> Parse(const string& sceneFile);
 };
 
 

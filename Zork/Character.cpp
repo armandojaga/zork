@@ -34,6 +34,11 @@ void Character::setCurrentScene(Scene* scene)
 	this->currentScene = scene;
 }
 
+void Character::addItem(Item* item)
+{
+	this->items.push_back(item);
+}
+
 
 Character::~Character()
 {

@@ -4,13 +4,21 @@
 
 #include "SceneParser.h"
 
+#include "Foe.h"
 #include "Item.h"
 #include "Util.h"
 
 SceneParser::SceneParser() = default;
 
-Scene* SceneParser::Parse(const string& sceneFile)
+list<Scene*> SceneParser::Parse(const string& sceneFile)
 {
+	list<string> pendingScenesToLoad;
+	bool loaded = find(loadedScenes.begin(), loadedScenes.end(), sceneFile) != loadedScenes.end();
+	if(loaded)
+	{
+		return list<Scene*>();
+	}
+	
 	const string PATHS = "#PATHS#";
 	const string ITEMS = "#ITEMS#";
 	const string FOES = "#FOES#";
@@ -66,8 +74,15 @@ Scene* SceneParser::Parse(const string& sceneFile)
 			throw exception("Invalid configuration for paths");
 		}
 		string direction = tokens.front();
-		string path = tokens.back();
-		this->pendingScenes.insert(make_pair(direction, path));
+		string sceneName = tokens.back();
+		Path* path = new Path(Path::directionFromName(direction), sceneName);
+		scene->addPath(path);
+
+		loaded = find(loadedScenes.begin(), loadedScenes.end(), sceneName) != loadedScenes.end();
+		if (!loaded) {
+			pendingScenesToLoad.push_back(sceneName);
+		}
+
 	}
 
 	//read items
@@ -111,10 +126,7 @@ Scene* SceneParser::Parse(const string& sceneFile)
 			else
 			{
 				//get container item
-				Item* it = Util::filter<Item*>(sceneItems, [=](const Item* i)
-				{
-					return i->getName() == value;
-				}).front();
+				Item* it = getItem(sceneItems, value);
 				it->add(item);
 			}
 		}
@@ -130,14 +142,13 @@ Scene* SceneParser::Parse(const string& sceneFile)
 		{
 			throw exception("Invalid configuration for items");
 		}
-		for (auto pi : pendingItems)
+		for (const auto& pi : pendingItems)
 		{
-			Item* it = Util::filter<Item*>(sceneItems, [=](const Item* i) { return i->getName() == pi.first; }).front();
+			Item* it = getItem(sceneItems, pi.first);
 			it->add(pi.second);
 		}
 		pendingItems.clear();
 	}
-
 	scene->setItems(sceneItems);
 
 	//read foes
@@ -148,10 +159,44 @@ Scene* SceneParser::Parse(const string& sceneFile)
 		{
 			throw exception("Invalid configuration for foe");
 		}
+
+		string name = tokens.front();
+		tokens.pop_front();
+
+		string description = tokens.front();
+		tokens.pop_front();
+
+		string health = tokens.front();
+		tokens.pop_front();
+
+		string damage = tokens.front();
+		tokens.pop_front();
+
+		auto foe = new Foe(name, description, stoi(health), stoi(damage));
+
+		if (!tokens.empty())
+		{
+			Item* item = getItem(sceneItems, tokens.front());
+			tokens.pop_front();
+			if (item) {
+				foe->addItem(item);
+				scene->removeItem(item);
+			}
+		}
+		scene->addEnemy(foe);
 	}
 
 	this->loadedScenes.push_back(sceneFile);
-	return scene;
+	pendingScenesToLoad.remove(sceneFile);
+	this->scenes.push_back(scene);
+	if (!pendingScenesToLoad.empty())
+	{
+		for (const auto& pending : pendingScenesToLoad)
+		{
+			Parse(pending);
+		}
+	}
+	return this->scenes;
 }
 
 list<string> SceneParser::Split(string& s) const
@@ -166,8 +211,14 @@ list<string> SceneParser::Split(string& s) const
 	return tokens;
 }
 
+Item* SceneParser::getItem(list<Item*> items, const string& item)
+{
+	return Util::filter<Item*>(items, [=](const Item* i){ return i->getName() == item;}).front();
+}
+
 
 SceneParser::~SceneParser()
 {
 	loadedScenes.clear();
+	scenes.clear();
 }

@@ -1,28 +1,14 @@
 #pragma once
 #include <string>
 #include <list>
-#include <map>
 
 #include "Character.h"
 #include "Item.h"
+#include "Path.h"
 
 class Character;
 
 using namespace std;
-
-enum Direction
-{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST,
-	SE,
-	SW,
-	NE,
-	NW,
-	UP,
-	DOWN
-};
 
 class Scene
 {
@@ -32,7 +18,7 @@ private:
 	string shortDescription;
 	string description;
 	bool dark;
-	map<Direction, Scene*> paths;
+	list<Path*> paths;
 	list<Item*> items;
 	list<Character*> enemies;
 
@@ -48,7 +34,7 @@ public:
 	bool hasEnemies() const { return !this->enemies.empty(); }
 	list<Character*> getEnemies() const { return this->enemies; }
 	
-	Scene* getPath(Direction direction);
+	Path* getPath(Direction direction);
 	bool hasPath(Direction direction);
 
 	void setId(string id);
@@ -57,7 +43,7 @@ public:
 	void setDescription(string description);
 	void setDark(bool isDark);
 
-	void addPath(Direction direction, Scene* scene);
+	void addPath(Path* path);
 	Item* take(string& item);
 	Item* take(string& container, string& item);
 	list<Item*> takeAll();

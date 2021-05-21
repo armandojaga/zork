@@ -35,4 +35,5 @@ public:
 	void dropItem(Item* item);
 	void dropAll();
 	void setCurrentScene(Scene* scene);
+	void addItem(Item* item);
 };

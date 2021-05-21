@@ -7,19 +7,19 @@ Scene::Scene()
 	this->dark = false;
 }
 
-void Scene::addPath(Direction direction, Scene* scene)
+void Scene::addPath(Path* path)
 {
-	this->paths.insert(make_pair(direction, scene));
+	this->paths.push_back(path);
 }
 
-Scene* Scene::getPath(Direction direction)
+Path* Scene::getPath(Direction direction)
 {
-	return this->paths.at(direction);
+	return Util::find<Path>(this->paths, [=](const Path* p) { return p->getDirection() == direction; });
 }
 
 bool Scene::hasPath(Direction direction)
 {
-	return this->paths.find(direction) != this->paths.end();
+	return getPath(direction);
 }
 
 void Scene::setId(const string id)

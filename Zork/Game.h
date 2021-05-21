@@ -1,4 +1,5 @@
 #pragma once
+#include "Hero.h"
 #include "SceneParser.h"
 #include "Scene.h"
 
@@ -6,8 +7,9 @@ using namespace std;
 
 class Game {
 private:
-	Scene* currentScene;
 	SceneParser* sceneParser;
+	Hero* hero;
+	list<Scene*> scenes;
 	void Loop();
 
 public:

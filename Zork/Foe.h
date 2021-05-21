@@ -4,6 +4,7 @@
 
 class Foe: public Character
 {
+public:
 	Foe(string name, string description, int health, int damage);
 	virtual ~Foe();
 };
