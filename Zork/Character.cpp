@@ -39,7 +39,6 @@ void Character::addItem(Item* item)
 	this->items.push_back(item);
 }
 
-
 Character::~Character()
 {
 	this->items.clear();

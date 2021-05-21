@@ -24,8 +24,6 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 	const string FOES = "#FOES#";
 	const string NONE = "NONE";
 
-	cout << "Reading file " << sceneFile << endl;
-
 	ifstream sceneConfig;
 	sceneConfig.open(sceneFile + ".scene");
 	if (!sceneConfig)

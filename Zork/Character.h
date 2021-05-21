@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <iostream>
 #include <string>
 
 #include "Item.h"
@@ -11,12 +12,14 @@ using namespace std;
 class Character
 {
 private:
+	list<Item*> items;
+	Scene* currentScene;
+
+protected:
 	string name;
 	string description;
 	int health;
 	int damage;
-	list<Item*> items;
-	Scene* currentScene;
 
 public:
 	Character(string name, string description, int health, int damage);
@@ -36,4 +39,6 @@ public:
 	void dropAll();
 	void setCurrentScene(Scene* scene);
 	void addItem(Item* item);
+
+	virtual void printStats() = 0;
 };
