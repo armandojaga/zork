@@ -152,6 +152,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="commands\AttackCommand.cpp" />
+    <ClCompile Include="commands\Command.cpp" />
+    <ClCompile Include="commands\DropCommand.cpp" />
+    <ClCompile Include="commands\EmptyCommand.cpp" />
+    <ClCompile Include="commands\ExamineCommand.cpp" />
+    <ClCompile Include="commands\GoCommand.cpp" />
+    <ClCompile Include="commands\InventoryCommand.cpp" />
+    <ClCompile Include="commands\OpenCommand.cpp" />
+    <ClCompile Include="commands\TakeCommand.cpp" />
     <ClCompile Include="Foe.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hero.cpp" />
@@ -184,7 +193,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="commands\AttackCommand.h" />
     <ClInclude Include="commands\Command.h" />
+    <ClInclude Include="commands\DropCommand.h" />
+    <ClInclude Include="commands\EmptyCommand.h" />
+    <ClInclude Include="commands\ExamineCommand.h" />
+    <ClInclude Include="commands\GoCommand.h" />
+    <ClInclude Include="commands\InventoryCommand.h" />
+    <ClInclude Include="commands\OpenCommand.h" />
+    <ClInclude Include="commands\TakeCommand.h" />
     <ClInclude Include="Foe.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />

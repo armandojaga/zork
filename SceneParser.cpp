@@ -25,7 +25,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 	const string NONE = "NONE";
 
 	ifstream sceneConfig;
-	sceneConfig.open(sceneFile + ".scene");
+	sceneConfig.open("scenes/"+ sceneFile + ".scene");
 	if (!sceneConfig)
 	{
 		string errorMessage = "Scene config file not found: " + sceneFile;
