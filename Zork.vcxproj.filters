@@ -85,6 +85,9 @@
     <ClCompile Include="SceneParser.cpp">
       <Filter>Source Files\parsers</Filter>
     </ClCompile>
+    <ClCompile Include="CommandParser.cpp">
+      <Filter>Source Files\parsers</Filter>
+    </ClCompile>
     <ClCompile Include="commands\AttackCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
@@ -139,6 +142,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneParser.h">
+      <Filter>Header Files\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandParser.h">
       <Filter>Header Files\parsers</Filter>
     </ClInclude>
     <ClInclude Include="commands\AttackCommand.h">

@@ -152,6 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CommandParser.cpp" />
+    <ClInclude Include="CommandParser.h" />
     <ClCompile Include="commands\AttackCommand.cpp" />
     <ClCompile Include="commands\Command.cpp" />
     <ClCompile Include="commands\DropCommand.cpp" />
