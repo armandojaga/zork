@@ -184,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="commands\Command.h" />
     <ClInclude Include="Foe.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />

@@ -13,7 +13,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\scenes">
+    <Filter Include="Header Files\commands">
+      <UniqueIdentifier>{e288cd46-4abb-4b2d-993b-7a0a31c1c486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\commands">
+      <UniqueIdentifier>{5c6b9026-6eb2-4857-8124-d03c534ce385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\scenes">
       <UniqueIdentifier>{6d716a1b-3782-4f47-a203-a526b3f1db20}</UniqueIdentifier>
       <SourceControlFiles>False</SourceControlFiles>
       <Extensions>scene</Extensions>
@@ -21,28 +27,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="forest_trail.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="start.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="forest.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="cabin.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="water_well.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="tree_top.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="cave.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
     <None Include="deep_forest.scene">
-      <Filter>Source Files\scenes</Filter>
+      <Filter>Resource Files\scenes</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="commands\Command.h">
+      <Filter>Header Files\commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
