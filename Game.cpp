@@ -22,14 +22,17 @@ Game::Game()
 	const auto currentScene = Util::find<Scene>(scenes, [=](const Scene* s) { return s->getId() == start; });
 
 	hero->setCurrentScene(currentScene);
-
 	scenes.clear();
 	delete sceneParser;
 }
 
 void Game::Start()
 {
-	std::cout << "Welcome to Zork!\n";
+	cout << "Welcome to my take on Zork!" << endl;
+	cout << "You were on a cruise enjoying your vacation when a sudden storm struck and the ship sunk." << endl;
+	cout<< "You washed ashore and managed to survive, finding yourself in an unknown land." << endl;
+	cout << endl;
+	hero->getCurrentScene()->printBrief();
 	Loop();
 }
 
