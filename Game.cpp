@@ -26,11 +26,6 @@ Game::Game()
 	
 	scenes.clear();
 	delete sceneParser;
-
-	Item* key = new Item();
-	key->setType("KEY");
-	key->setName("Key");
-	hero->addItem(key);
 }
 
 void Game::Start()
