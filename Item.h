@@ -38,7 +38,7 @@ private:
 	ItemType type;
 	int magnitude;
 	list<Item*> items;
-	void remove(Item* item);
+
 	Item* get(string& item);
 
 public:
@@ -47,16 +47,16 @@ public:
 	string getName() const { return this->name; }
 	ItemType getType() const { return this->type; }
 	int getMagnitude() const { return this->magnitude; }
-	bool hasItems()const { return !this->items.empty(); }
-	list<Item*> getItems() { return this->items; }
+	bool hasItems() const { return !this->items.empty(); }
+	list<Item*> getItems() const { return this->items; }
 
 	void setName(string name);
 	void setType(string type);
 	void setType(ItemType& type);
 	void setMagnitude(int& magnitude);
 
+	void remove(Item* item);
 	void add(Item* item);
-	Item* take(string& item);
 	bool IsContainer() const { return this->type == BOX || this->type == LOCKED_BOX || this->type == OPEN_BOX; }
 	bool IsLocked() const { return this->type == LOCKED_BOX; }
 

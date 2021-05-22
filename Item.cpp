@@ -46,17 +46,6 @@ Item* Item::get(string& item)
 	return Util::filter<Item*>(this->items, [&](const Item* i) { return i->name == item; }).front();
 }
 
-Item* Item::take(string& item)
-{
-	if (IsContainer() && !IsLocked())
-	{
-		Item* i = get(item);
-		remove(i);
-		return i;
-	}
-	return nullptr;
-}
-
 Item::~Item()
 {
 	this->items.clear();

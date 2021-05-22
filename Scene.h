@@ -49,9 +49,6 @@ public:
 	bool isIlluminated() const;
 
 	void addPath(Path* path);
-	Item* take(string& item);
-	Item* take(string& container, string& item);
-	list<Item*> takeAll();
 	void setItems(list<Item*> items);
 	void addItem(Item* item);
 	void removeItem(Item* item);

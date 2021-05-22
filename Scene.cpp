@@ -95,7 +95,7 @@ void Scene::printBrief()
 			}
 			else
 			{
-				cout << ", but is empty" << endl;
+				cout << ", but is empty";
 			}
 		}
 		cout << endl;
@@ -129,51 +129,11 @@ void Scene::printBrief()
 		}
 		for (auto enemy : enemies)
 		{
-			cout << enemy->getName() << endl;
+			if (isBeingIlluminated) {
+				cout << "You see a fearsome " << enemy->getName() << endl;
+			}
 		}
 	}
-	cout << endl;
-}
-
-Item* Scene::take(string& item)
-{if (isDark() && !isIlluminated())
-	{
-		cout << "It's dark, you can't see anything" << endl;
-		return nullptr;
-	}
-	if (!hasItems())
-	{
-		cout << "There's nothing here" << endl;
-		return nullptr;
-	}
-	return Util::find<Item>(this->items, [&](const Item* i) { return i->getName() == item; });
-}
-
-Item* Scene::take(string& container, string& item)
-{
-	auto c = take(container);
-	if (c == nullptr)
-	{
-		return c;
-	}
-	return c->take(item);
-}
-
-list<Item*> Scene::takeAll()
-{
-	if (isDark() && !isIlluminated())
-	{
-		cout << "It's dark, you can't see anything" << endl;
-		return {};
-	}
-	if(!hasItems())
-	{
-		cout << "There's nothing here" << endl;
-		return{};
-	}
-	auto result = list<Item*>(this->items);
-	this->items.clear();
-	return result;
 }
 
 Scene::~Scene()

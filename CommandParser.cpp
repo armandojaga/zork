@@ -11,6 +11,7 @@
 #include "commands/LookCommand.h"
 #include "commands/OpenCommand.h"
 #include "commands/NonCommand.h"
+#include "commands/TakeCommand.h"
 
 string CommandParser::ToUpper(string& str) const
 {
@@ -46,7 +47,18 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 		break;
 	case ATTACK: break;
 	case EXAMINE: break;
-	case TAKE: break;
+	case TAKE:
+		if (args.empty())
+		{
+			cout << "What do you want to take?" << endl;
+			command = new NonCommand();
+		}
+		else
+		{
+			userCommand = args[0];
+			command = new TakeCommand(hero, userCommand);
+		}
+		break;
 	case DROP:
 		if (args.empty())
 		{

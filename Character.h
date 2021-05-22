@@ -43,6 +43,8 @@ public:
 	void setCurrentScene(Scene* scene);
 	void addItem(Item* item);
 	void remove(Item* item);
+	void take(Item* item);
+	void take(Item* container, Item* item);
 
 	virtual void printStats() = 0;
 };

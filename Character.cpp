@@ -55,3 +55,15 @@ void Character::remove(Item* item)
 	this->items.remove(item);
 	delete item;
 }
+
+void Character::take(Item* item)
+{
+	this->currentScene->removeItem(item);
+	this->items.push_back(item);
+}
+
+void Character::take(Item* container, Item* item)
+{
+	container->remove(item);
+	this->items.push_back(item);
+}
