@@ -39,11 +39,17 @@ void Hero::go(Direction& direction)
 		Path * destination = this->getCurrentScene()->getPath(direction);
 		this->setCurrentScene(destination->getScene());
 		bool isDark = this->getCurrentScene()->isDark();
-		if(isDark && !this->getItems().empty())
+		auto sceneLight = Util::find<Item>(this->getCurrentScene()->getItems(), [](const Item* i) { return i->getType() == LIGHT; });
+		if(isDark && !this->getItems().empty() || sceneLight)
 		{
-			auto heroLight = Util::filter<Item*>(this->getItems(), [](const Item* i) { return i->getType() == LIGHT; });
-			auto sceneLight = Util::filter<Item*>(this->getCurrentScene()->getItems(), [](const Item* i) { return i->getType() == LIGHT; });
-			if(!heroLight.empty() || !sceneLight.empty())
+			if (!sceneLight) {
+				auto heroLight = Util::find<Item>(this->getItems(), [](const Item* i) { return i->getType() == LIGHT; });
+
+				if (heroLight)
+				{
+					this->getCurrentScene()->setIlluminated(true);
+				}
+			} else
 			{
 				this->getCurrentScene()->setIlluminated(true);
 			}
