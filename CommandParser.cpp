@@ -4,6 +4,7 @@
 
 #include "commands/EmptyCommand.h"
 #include "commands/GoCommand.h"
+#include "commands/HelpCommand.h"
 #include "commands/LookCommand.h"
 #include "commands/OpenCommand.h"
 #include "commands/NonCommand.h"
@@ -45,7 +46,9 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 	case TAKE: break;
 	case DROP: break;
 	case INVENTORY: break;
-	case HELP: break;
+	case HELP: 
+		command = new HelpCommand();
+		break;
 	case LOOK:
 		if (args.empty())
 		{
@@ -69,7 +72,6 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 			command = new OpenCommand(hero, userCommand);
 		}
 		break;
-	case EMPTY:
 	default:
 		{
 			const Direction d = Path::DirectionFromName(userCommand);
