@@ -166,10 +166,10 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 			throw exception("Invalid configuration for foe");
 		}
 
-		string name = tokens.front();
+		string enemyName = tokens.front();
 		tokens.pop_front();
 
-		string description = tokens.front();
+		string enemyDescription = tokens.front();
 		tokens.pop_front();
 
 		string health = tokens.front();
@@ -180,7 +180,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		
 		int h = stoi(health);
 		int d = stoi(damage);
-		auto foe = new Foe(name, description, h, d);
+		auto foe = new Foe(enemyName, enemyDescription, h, d);
 
 		if (!tokens.empty())
 		{

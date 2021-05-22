@@ -22,60 +22,9 @@ void OpenCommand::Execute()
 		return Util::areEqualsIgnoreCase(i->getName(), item);
 	});
 
-	const function<void(Item& i)> printItemInfo([&](Item& i)
-	{
-		if (i.hasItems())
-		{
-			cout << i.getName() << " contains: " << endl;
-			for (auto it : i.getItems())
-			{
-				cout << "- " << it->getName() << endl;
-			}
-		}
-		else
-		{
-			cout << i.getName() << " is empty" << endl;
-		}
-	});
-	
 	if (toOpen)
 	{
-		if (toOpen->IsContainer())
-		{
-			if (toOpen->IsLocked())
-			{
-				const auto key = Util::find<Item>(this->hero->getItems(), [](const Item* i)
-				{
-					return i->getType() == KEY;
-				});
-				if (key)
-				{
-					cout << "You used the key to open " << item << endl;
-					ItemType newType = OPEN_BOX;
-					toOpen->setType(newType);
-					hero->getItems().remove(key);
-					printItemInfo(*toOpen);
-				}
-				else
-				{
-					cout << "You need a key to open it" << endl;
-				}
-			}
-			else if (toOpen->getType() == BOX)
-			{
-				cout << "You opened " << item << endl;
-				printItemInfo(*toOpen);
-			}
-			else
-			{
-				cout << "It's already open" << endl;
-				printItemInfo(*toOpen);
-			}
-		}
-		else
-		{
-			cout << "You can't open that" << endl;
-		}
+		hero->open(*toOpen);
 	}
 	else
 	{

@@ -41,6 +41,7 @@ public:
 	void dropAll();
 	void setCurrentScene(Scene* scene);
 	void addItem(Item* item);
+	void remove(Item* item);
 
 	virtual void printStats() = 0;
 };

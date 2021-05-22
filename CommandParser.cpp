@@ -2,6 +2,7 @@
 
 #include <algorithm>
 
+#include "commands/DropCommand.h"
 #include "commands/EmptyCommand.h"
 #include "commands/GoCommand.h"
 #include "commands/HelpCommand.h"
@@ -45,7 +46,17 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 	case ATTACK: break;
 	case EXAMINE: break;
 	case TAKE: break;
-	case DROP: break;
+	case DROP:
+		if(args.empty())
+		{
+			cout << "What do you want to drop?" << endl;
+			command = new NonCommand();
+		}
+		else {
+			userCommand = args[0];
+			command = new DropCommand(hero, userCommand);
+		}
+		break;
 	case INVENTORY: 
 		command = new InventoryCommand(hero);
 		break;

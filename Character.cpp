@@ -43,3 +43,10 @@ Character::~Character()
 {
 	this->items.clear();
 }
+
+
+void Character::remove(Item* item)
+{
+	this->items.remove(item);
+	delete item;
+}
