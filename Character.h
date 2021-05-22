@@ -31,12 +31,13 @@ public:
 	int getDamage() const { return this->damage; }
 	int getHealth() const { return this->health; }
 	Scene* getCurrentScene() const { return this->currentScene; }
-	bool hasItems()const { return !this->items.empty(); }
+	bool hasItems() const { return !this->items.empty(); }
 
 	bool isAlive() const { return this->health > 0; }
 
 	void attack(Character* enemy);
 	void takeHit(const int& damage);
+	void heal(const int& health);
 	void dropItem(Item* item);
 	void dropAll();
 	void setCurrentScene(Scene* scene);

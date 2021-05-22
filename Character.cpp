@@ -14,6 +14,11 @@ void Character::takeHit(const int& damage)
 	this->health -= damage;
 }
 
+void Character::heal(const int& health)
+{
+	this->health += health;
+}
+
 void Character::dropItem(Item* item)
 {
 	this->items.remove(item);

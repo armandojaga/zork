@@ -98,6 +98,9 @@
     <ClCompile Include="commands\NonCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
+    <ClCompile Include="commands\EatCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -164,6 +167,9 @@
       <Filter>Header Files\commands</Filter>
     </ClInclude>
     <ClInclude Include="commands\NonCommand.h">
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="commands\EatCommand.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
   </ItemGroup>
