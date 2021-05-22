@@ -15,6 +15,7 @@ enum ItemType
 	RANGE_WEAPON,
 	AMMO,
 	KEY,
+	OPEN_BOX,
 	NORMAL
 };
 
@@ -46,6 +47,8 @@ public:
 	string getName() const { return this->name; }
 	ItemType getType() const { return this->type; }
 	int getMagnitude() const { return this->magnitude; }
+	bool hasItems()const { return !this->items.empty(); }
+	list<Item*> getItems() { return this->items; }
 
 	void setName(string name);
 	void setType(string type);
@@ -54,7 +57,7 @@ public:
 
 	void add(Item* item);
 	Item* take(string& item);
-	bool IsContainer() const { return this->type == BOX || this->type == LOCKED_BOX; }
+	bool IsContainer() const { return this->type == BOX || this->type == LOCKED_BOX || this->type == OPEN_BOX; }
 	bool IsLocked() const { return this->type == LOCKED_BOX; }
 
 	bool operator==(Item& other) const { return this->name == other.name; }

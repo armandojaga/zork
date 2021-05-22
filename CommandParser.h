@@ -3,12 +3,12 @@
 
 #include "commands/Command.h"
 
-class CommandPaser
+class CommandParser
 {
 private:
 	string ToUpper(string&) const;
 public:
-	CommandPaser();
+	CommandParser();
 	Command* Parse(vector<string>& args, Hero*) const;
-	~CommandPaser();
+	~CommandParser();
 };

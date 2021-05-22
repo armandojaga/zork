@@ -6,8 +6,10 @@ class Hero;
 
 class OpenCommand : public Command
 {
+private:
+	const string item;
 public:
-	OpenCommand(Hero* hero);
+	OpenCommand(Hero*, const string& item);
 	~OpenCommand() override;
 	void Execute() override;
 };

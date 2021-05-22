@@ -15,7 +15,7 @@ void Scene::addPath(Path* path)
 
 Path* Scene::getPath(Direction direction)
 {
-	return Util::find<Path>(this->paths, [=](const Path* p) { return p->getDirection() == direction; });
+	return Util::find<Path>(this->paths, [&](const Path* p) { return p->getDirection() == direction; });
 }
 
 bool Scene::hasPath(Direction direction)
@@ -82,6 +82,25 @@ void Scene::removeEnemy(Character* enemy)
 
 void Scene::printBrief()
 {
+	const function<void(Item& i)> printItemInfo([&](Item& i)
+	{
+		if (i.getType() == OPEN_BOX) {
+			if (i.hasItems())
+			{
+				cout << ", it contains: " << endl;
+				for (auto it : i.getItems())
+				{
+					cout << "- " << it->getName() << endl;
+				}
+			}
+			else
+			{
+				cout << ", but is empty" << endl;
+			}
+		}
+		cout << endl;
+	});
+	
 	cout << name << endl;
 	cout << description << endl;
 	for (auto path : paths)
@@ -102,9 +121,11 @@ void Scene::printBrief()
 	}
 	else
 	{
+		
 		for (auto item : items)
 		{
-			cout << "A " << item->getName() << " is here" << endl;
+			cout << "A " << item->getName() << " is here";
+			printItemInfo(*item);
 		}
 		for (auto enemy : enemies)
 		{
@@ -115,17 +136,21 @@ void Scene::printBrief()
 }
 
 Item* Scene::take(string& item)
-{
-	return Util::find<Item>(this->items, [=](const Item* i) { return i->getName() == item; });
-}
-
-Item* Scene::take(string& container, string& item)
-{
-	if (isDark() && !isIlluminated())
+{if (isDark() && !isIlluminated())
 	{
 		cout << "It's dark, you can't see anything" << endl;
 		return nullptr;
 	}
+	if (!hasItems())
+	{
+		cout << "There's nothing here" << endl;
+		return nullptr;
+	}
+	return Util::find<Item>(this->items, [&](const Item* i) { return i->getName() == item; });
+}
+
+Item* Scene::take(string& container, string& item)
+{
 	auto c = take(container);
 	if (c == nullptr)
 	{
@@ -140,6 +165,11 @@ list<Item*> Scene::takeAll()
 	{
 		cout << "It's dark, you can't see anything" << endl;
 		return {};
+	}
+	if(!hasItems())
+	{
+		cout << "There's nothing here" << endl;
+		return{};
 	}
 	auto result = list<Item*>(this->items);
 	this->items.clear();

@@ -43,7 +43,7 @@ void Item::remove(Item* item)
 
 Item* Item::get(string& item)
 {
-	return Util::filter<Item*>(this->items, [=](const Item* i) { return i->name == item; }).front();
+	return Util::filter<Item*>(this->items, [&](const Item* i) { return i->name == item; }).front();
 }
 
 Item* Item::take(string& item)

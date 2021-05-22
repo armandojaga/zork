@@ -10,19 +10,27 @@
 
 Game::Game()
 {
+
 	string name = "Mando";
+	string desc = "Castaway";
 	int health = 100;
 	int attack = 1;
-	hero = new Hero(name, name, health, attack);
+	hero = new Hero(name, desc, health, attack);
 	sceneParser = new SceneParser();
-	commandPaser = new CommandPaser();
+	commandParser = new CommandParser();
 	
 	const string start = "start";
 	list<Scene*> scenes = sceneParser->Parse(start);
-	const auto currentScene = Util::find<Scene>(scenes, [=](const Scene* s) { return s->getId() == start; });
+	const auto currentScene = Util::find<Scene>(scenes, [&](const Scene* s) { return s->getId() == start; });
 	hero->setCurrentScene(currentScene);
+	
 	scenes.clear();
 	delete sceneParser;
+
+	Item* key = new Item();
+	key->setType("KEY");
+	key->setName("Key");
+	hero->addItem(key);
 }
 
 void Game::Start()
@@ -53,7 +61,7 @@ void Game::Loop()
 			tokens.push_back(token);
 		}
 
-		Command* command = commandPaser->Parse(tokens, hero);
+		Command* command = commandParser->Parse(tokens, hero);
 		ExecuteCommand(command);
 		
 		tokens.clear();

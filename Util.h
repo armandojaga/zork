@@ -29,4 +29,9 @@ public:
 		}
 		return nullptr;
 	}
+
+	static bool areEqualsIgnoreCase(const string& a, const string& b)
+	{
+		return _stricmp(a.c_str(), b.c_str()) == 0;
+	}
 };

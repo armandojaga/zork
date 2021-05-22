@@ -11,7 +11,7 @@ class Game
 {
 private:
 	SceneParser* sceneParser;
-	CommandPaser* commandPaser;
+	CommandParser* commandParser;
 	Hero* hero;
 	void Loop();
 	void ExecuteCommand(Command* command);

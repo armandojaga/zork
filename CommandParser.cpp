@@ -5,16 +5,18 @@
 #include "commands/EmptyCommand.h"
 #include "commands/GoCommand.h"
 #include "commands/LookCommand.h"
+#include "commands/OpenCommand.h"
+#include "commands/NonCommand.h"
 
-string CommandPaser::ToUpper(string& str) const
+string CommandParser::ToUpper(string& str) const
 {
 	transform(str.begin(), str.end(), str.begin(), toupper);
 	return str;
 }
 
-CommandPaser::CommandPaser() = default;
+CommandParser::CommandParser() = default;
 
-Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
+Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 {
 	if (args.empty())
 	{
@@ -24,7 +26,7 @@ Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
 	string userCommand = args[0];
 	args.erase(args.begin());
 	ToUpper(userCommand);
-	CommandType type = Command::GetCommand(userCommand);
+	const CommandType type = Command::GetCommand(userCommand);
 	switch (type)
 	{
 	case GO:
@@ -45,14 +47,28 @@ Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
 	case INVENTORY: break;
 	case HELP: break;
 	case LOOK:
-		if (args.empty()) {
+		if (args.empty())
+		{
 			command = new LookCommand(hero);
-		}else
+		}
+		else
 		{
 			cout << "You can't look at that" << endl;
+			command = new NonCommand();
 		}
 		break;
-	case OPEN: break;
+	case OPEN:
+		if (args.empty() || args.size() > 1)
+		{
+			cout << "What do you want to open?" << endl;
+			command = new NonCommand();
+		}
+		else
+		{
+			userCommand = args[0];
+			command = new OpenCommand(hero, userCommand);
+		}
+		break;
 	case EMPTY:
 	default:
 		{
@@ -71,4 +87,4 @@ Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
 	return command;
 }
 
-CommandPaser::~CommandPaser() = default;
+CommandParser::~CommandParser() = default;

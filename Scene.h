@@ -34,6 +34,8 @@ public:
 	bool isDark() const { return this->dark; }
 	bool hasEnemies() const { return !this->enemies.empty(); }
 	list<Character*> getEnemies() const { return this->enemies; }
+	bool hasItems() const { return !this->items.empty(); }
+	list<Item*> getItems() const { return this->items; }
 
 	Path* getPath(Direction direction);
 	bool hasPath(Direction direction);

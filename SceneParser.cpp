@@ -211,7 +211,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 	{
 		if(!pending.loaded)
 		{
-			auto _scene = Util::find<Scene>(scenes, [=](const Scene* s) {return s->getId() == pending.targetScene; });
+			auto _scene = Util::find<Scene>(scenes, [&](const Scene* s) {return s->getId() == pending.targetScene; });
 			pending.path->setScene(_scene);
 			pending.loaded = true;
 		}
@@ -233,7 +233,7 @@ list<string> SceneParser::Split(string& s) const
 
 Item* SceneParser::getItem(list<Item*> items, const string& item)
 {
-	return Util::filter<Item*>(items, [=](const Item* i) { return i->getName() == item; }).front();
+	return Util::filter<Item*>(items, [&](const Item* i) { return i->getName() == item; }).front();
 }
 
 
