@@ -15,6 +15,8 @@ enum CommandType
 	DROP,
 	INVENTORY,
 	OPEN,
+	LOOK,
+	HELP,
 	EMPTY
 };
 
@@ -25,7 +27,9 @@ static const unordered_map<string, CommandType> commandMap = {
 	{"TAKE", TAKE},
 	{"DROP", DROP},
 	{"INVENTORY", INVENTORY}, {"I", INVENTORY},
-	{"OPEN", OPEN}
+	{"OPEN", OPEN},
+	{"LOOK", LOOK}, {"L", LOOK},
+	{"HELP", HELP}, {"H", HELP}
 };
 
 class Command

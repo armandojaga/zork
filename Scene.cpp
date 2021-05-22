@@ -73,9 +73,9 @@ void Scene::removeEnemy(Character* enemy)
 	this->enemies.remove(enemy);
 }
 
-string Scene::getBrief()
+void Scene::printBrief()
 {
-	return "";
+	cout <<
 }
 
 Item* Scene::take(string& item)

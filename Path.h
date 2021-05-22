@@ -2,6 +2,8 @@
 #include <string>
 #include <unordered_map>
 
+class Scene;
+
 using namespace std;
 
 enum Direction
@@ -36,15 +38,16 @@ class Path
 {
 private:
 	Direction direction;
-	string scene;
+	Scene* scene;
 public:
-	Path(Direction direction, string& scene);
+	Path(Direction direction);
 	~Path();
 
 	Direction getDirection() const { return this->direction; }
-	string getSceneName() const { return this->scene; }
+	Scene* getScene() const { return this->scene; }
+	void setScene(Scene*);
 
-	static Direction directionFromName(string& directionName)
+	static const Direction DirectionFromName(string& directionName)
 	{
 		try
 		{

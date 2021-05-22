@@ -1,6 +1,6 @@
 #include "Character.h"
 
-Character::Character(string name, string description, int health, int damage):
+Character::Character(string& name, string& description, int& health, int& damage):
 	name(name), description(description), health(health), damage(damage)
 {
 }
@@ -9,7 +9,7 @@ void Character::attack(Character* enemy)
 {
 }
 
-void Character::takeHit(int damage)
+void Character::takeHit(const int& damage)
 {
 	this->health -= damage;
 }

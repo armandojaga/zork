@@ -32,32 +32,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="forest_trail.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="start.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="forest.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="cabin.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="water_well.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="tree_top.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="cave.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="deep_forest.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -113,6 +87,12 @@
       <Filter>Source Files\commands</Filter>
     </ClCompile>
     <ClCompile Include="commands\TakeCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
+    <ClCompile Include="commands\LookCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
+    <ClCompile Include="commands\HelpCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
   </ItemGroup>
@@ -174,5 +154,42 @@
     <ClInclude Include="commands\TakeCommand.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
+    <ClInclude Include="commands\LookCommand.h">
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="commands\HelpCommand.h">
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="help.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scenes\cabin.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\cave.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\deep_forest.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\forest.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\forest_trail.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\start.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\tree_top.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="scenes\water_well.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
   </ItemGroup>
 </Project>

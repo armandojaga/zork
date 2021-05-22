@@ -50,7 +50,7 @@ public:
 	void setName(string name);
 	void setType(string type);
 	void setType(ItemType& type);
-	void setMagnitude(int magnitude);
+	void setMagnitude(int& magnitude);
 
 	void add(Item* item);
 	Item* take(string& item);

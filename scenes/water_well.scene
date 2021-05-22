@@ -1,12 +1,9 @@
-forest
-Forest
-a dense forest
-A dense forest full of shadows, there is a huge tree, maybe you can climb it
+water_well
+Water well
+an old water well
+This old water well is completely dry
 #PATHS#
-SOUTH|forest_trail
-NE|deep_forest
-SE|cabin
-UP|tree_top
+UP|cabin
 #ITEMS#
 Key|KEY|0|NONE
 #FOES#

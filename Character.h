@@ -22,7 +22,7 @@ protected:
 	int damage;
 
 public:
-	Character(string name, string description, int health, int damage);
+	Character(string& name, string& description, int& health, int& damage);
 	virtual ~Character();
 
 	string getName() const { return this->name; }
@@ -30,11 +30,12 @@ public:
 	list<Item*> getItems() const { return this->items; }
 	int getDamage() const { return this->damage; }
 	int getHealth() const { return this->health; }
+	Scene* getCurrentScene() const { return this->currentScene; }
 
 	bool isAlive() const { return this->health > 0; }
 
 	void attack(Character* enemy);
-	void takeHit(int damage);
+	void takeHit(const int& damage);
 	void dropItem(Item* item);
 	void dropAll();
 	void setCurrentScene(Scene* scene);

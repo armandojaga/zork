@@ -5,7 +5,7 @@
 class Foe : public Character
 {
 public:
-	Foe(string name, string description, int health, int damage);
+	Foe(string& name, string& description, int& health, int& damage);
 	~Foe() override;
 	void printStats() override;
 };

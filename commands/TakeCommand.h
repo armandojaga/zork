@@ -7,7 +7,7 @@ class Hero;
 class TakeCommand : public Command
 {
 public:
-	TakeCommand(Hero* game);
+	TakeCommand(Hero* hero);
 	~TakeCommand() override;
 	void Execute() override;
 };

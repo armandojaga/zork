@@ -1,5 +1,10 @@
 #include "EmptyCommand.h"
 
+
+EmptyCommand::EmptyCommand(): Command(nullptr)
+{
+}
+
 EmptyCommand::EmptyCommand(Hero* hero): Command(hero)
 {
 }

@@ -7,20 +7,23 @@
 #include "Util.h"
 #include "Hero.h"
 #include "SceneParser.h"
-#include "commands/AttackCommand.h"
 
 Game::Game()
 {
-	hero = new Hero("Mando", "Castaway", 100, 1);
+	string name = "Mando";
+	int health = 100;
+	int attack = 1;
+	hero = new Hero(name, name, health, attack);
 	sceneParser = new SceneParser();
 	commandPaser = new CommandPaser();
 	
 	const string start = "start";
-	scenes = sceneParser->Parse(start);
+	list<Scene*> scenes = sceneParser->Parse(start);
 	const auto currentScene = Util::find<Scene>(scenes, [=](const Scene* s) { return s->getId() == start; });
 
 	hero->setCurrentScene(currentScene);
 
+	scenes.clear();
 	delete sceneParser;
 }
 
@@ -33,7 +36,7 @@ void Game::Start()
 void Game::Loop()
 {
 	string input;
-	list<string> tokens;
+	vector<string> tokens;
 	while(hero->isAlive())
 	{
 		cout << "> ";

@@ -23,7 +23,7 @@ void Item::setType(ItemType& type)
 	this->type = type;
 }
 
-void Item::setMagnitude(int magnitude)
+void Item::setMagnitude(int& magnitude)
 {
 	this->magnitude = magnitude;
 }

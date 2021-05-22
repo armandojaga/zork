@@ -73,10 +73,11 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		}
 		string direction = tokens.front();
 		string sceneName = tokens.back();
-		auto path = new Path(Path::directionFromName(direction), sceneName);
+		auto path = new Path(Path::DirectionFromName(direction));
 		scene->addPath(path);
-
-		loaded = find(loadedScenes.begin(), loadedScenes.end(), sceneName) != loadedScenes.end();
+		pendingPaths.emplace_back(sceneFile, path, sceneName);
+		auto s = find(loadedScenes.begin(), loadedScenes.end(), sceneName);
+		loaded = s != loadedScenes.end();
 		if (!loaded)
 		{
 			pendingScenesToLoad.push_back(sceneName);
@@ -110,7 +111,9 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 
 		value = tokens.front();
 		tokens.pop_front();
-		item->setMagnitude(stoi(value));
+
+		int magnitude = stoi(value);
+		item->setMagnitude(magnitude);
 
 		value = tokens.front();
 		tokens.pop_front();
@@ -169,8 +172,10 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 
 		string damage = tokens.front();
 		tokens.pop_front();
-
-		auto foe = new Foe(name, description, stoi(health), stoi(damage));
+		
+		int h = stoi(health);
+		int d = stoi(damage);
+		auto foe = new Foe(name, description, h, d);
 
 		if (!tokens.empty())
 		{
@@ -193,6 +198,17 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		for (const auto& pending : pendingScenesToLoad)
 		{
 			Parse(pending);
+		}
+	}
+
+	//assing scenes to paths
+	for (auto pending : pendingPaths)
+	{
+		if(!pending.loaded)
+		{
+			auto _scene = Util::find<Scene>(scenes, [=](const Scene* s) {return s->getId() == pending.targetScene; });
+			pending.path->setScene(_scene);
+			pending.loaded = true;
 		}
 	}
 	return this->scenes;
@@ -220,4 +236,5 @@ SceneParser::~SceneParser()
 {
 	loadedScenes.clear();
 	scenes.clear();
+	pendingPaths.clear();
 }

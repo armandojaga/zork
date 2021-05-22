@@ -9,6 +9,6 @@ private:
 	string ToUpper(string&) const;
 public:
 	CommandPaser();
-	Command* Parse(list<string>& args, Hero*);
+	Command* Parse(vector<string>& args, Hero*) const;
 	~CommandPaser();
 };

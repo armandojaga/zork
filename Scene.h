@@ -53,5 +53,5 @@ public:
 	void addEnemy(Character* enemy);
 	void removeEnemy(Character* enemy);
 
-	string getBrief();
+	void printBrief();
 };

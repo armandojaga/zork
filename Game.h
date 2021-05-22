@@ -13,7 +13,6 @@ private:
 	SceneParser* sceneParser;
 	CommandPaser* commandPaser;
 	Hero* hero;
-	list<Scene*> scenes;
 	void Loop();
 	void ExecuteCommand(Command* command);
 
