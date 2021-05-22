@@ -165,6 +165,7 @@
     <ClCompile Include="commands\LookCommand.cpp" />
     <ClCompile Include="commands\OpenCommand.cpp" />
     <ClCompile Include="commands\TakeCommand.cpp" />
+    <ClCompile Include="commands\NonCommand.cpp" />
     <ClCompile Include="Foe.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hero.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="commands\LookCommand.h" />
     <ClInclude Include="commands\OpenCommand.h" />
     <ClInclude Include="commands\TakeCommand.h" />
+    <ClInclude Include="commands\NonCommand.h" />
     <ClInclude Include="Foe.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />
