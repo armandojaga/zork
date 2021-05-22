@@ -18,12 +18,13 @@ private:
 	string shortDescription;
 	string description;
 	bool dark;
+	bool isBeingIlluminated;
 	list<Path*> paths;
 	list<Item*> items;
 	list<Character*> enemies;
 
 public:
-	Scene();
+	Scene(bool);
 	~Scene();
 
 	string getId() const { return this->id; }
@@ -41,7 +42,9 @@ public:
 	void setName(string name);
 	void setShortDescription(string shortDescription);
 	void setDescription(string description);
-	void setDark(bool isDark);
+	
+	void setIlluminated(bool);
+	bool isIlluminated() const;
 
 	void addPath(Path* path);
 	Item* take(string& item);

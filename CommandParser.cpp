@@ -46,7 +46,7 @@ Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
 	case HELP: break;
 	case LOOK:
 		if (args.empty()) {
-			command = new LookCommand();
+			command = new LookCommand(hero);
 		}else
 		{
 			cout << "You can't look at that" << endl;

@@ -20,7 +20,6 @@ Game::Game()
 	const string start = "start";
 	list<Scene*> scenes = sceneParser->Parse(start);
 	const auto currentScene = Util::find<Scene>(scenes, [=](const Scene* s) { return s->getId() == start; });
-
 	hero->setCurrentScene(currentScene);
 	scenes.clear();
 	delete sceneParser;

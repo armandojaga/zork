@@ -1,5 +1,7 @@
 ﻿#include "Hero.h"
 
+#include "Util.h"
+
 Hero::Hero(string& name, string& description, int& health, int& damage) : Character(name, description, health, damage)
 {
 }
@@ -33,6 +35,15 @@ void Hero::go(Direction& direction)
 	{
 		Path * destination = this->getCurrentScene()->getPath(direction);
 		this->setCurrentScene(destination->getScene());
+		bool isDark = this->getCurrentScene()->isDark();
+		if(isDark && !this->getItems().empty())
+		{
+			auto l = Util::filter<Item*>(this->getItems(), [](const Item* i) { return i->getType() == LIGHT; });
+			if(!l.empty())
+			{
+				this->getCurrentScene()->setIlluminated(true);
+			}
+		}
 		destination->getScene()->printBrief();
 	}else
 	{

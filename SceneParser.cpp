@@ -32,32 +32,37 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		throw exception(errorMessage.c_str());
 	}
 
-	auto scene = new Scene();
 	string line;
 
 	//read id
 	getline(sceneConfig, line);
-	scene->setId(line);
+	const string id = line;
 
 	//read name
 	getline(sceneConfig, line);
-	scene->setName(line);
+	const string name = line;
 
 	//read short description
 	getline(sceneConfig, line);
-	scene->setShortDescription(line);
+	const string shortDescription = line;
 
 	//read description
 	getline(sceneConfig, line);
-	scene->setDescription(line);
+	const string description = line;
 
 	//read dark (optional attribute)
 	getline(sceneConfig, line);
+	bool isDark = false;
 	if (line.find('#') == string::npos)
 	{
-		scene->setDark(true);
+		isDark = true;
 		getline(sceneConfig, line); //read the PATHS section header
 	}
+	auto scene = new Scene(isDark);
+	scene->setId(id);
+	scene->setName(name);
+	scene->setShortDescription(shortDescription);
+	scene->setDescription(description);
 
 	//read paths
 	while (getline(sceneConfig, line))

@@ -2,9 +2,10 @@
 
 #include "Util.h"
 
-Scene::Scene()
+Scene::Scene(bool isDark)
 {
-	this->dark = false;
+	this->dark = isDark;
+	isBeingIlluminated = false;
 }
 
 void Scene::addPath(Path* path)
@@ -37,14 +38,20 @@ void Scene::setShortDescription(const string shortDescription)
 	this->shortDescription = shortDescription;
 }
 
-void Scene::setDescription(string description)
+void Scene::setDescription(const string description)
 {
 	this->description = description;
 }
 
-void Scene::setDark(bool isDark)
+void Scene::setIlluminated(bool isBeingIlluminated)
 {
-	this->dark = isDark;
+	this->isBeingIlluminated = isBeingIlluminated;
+}
+
+
+bool Scene::isIlluminated() const
+{
+	return this->isBeingIlluminated;
 }
 
 void Scene::setItems(list<Item*> items)
@@ -79,15 +86,32 @@ void Scene::printBrief()
 	cout << description << endl;
 	for (auto path : paths)
 	{
-		if(path->getDirection() != UP && path->getDirection() != DOWN)
+		if (path->getDirection() != UP && path->getDirection() != DOWN)
 		{
-			cout << "There is a path leading to " << path->getScene()->getShortDescription() << " to the " << directionNameMap.at(path->getDirection()) << " of here" << endl;
+			cout << "There is a path leading to " << path->getScene()->getShortDescription() << " to the " <<
+				directionNameMap.at(path->getDirection()) << " of here" << endl;
 		}
 	}
-	for (auto item : items)
+	if (isDark() && !isIlluminated())
 	{
-		cout << "A " << item->getName() << " is here" << endl;
+		cout << "It's pitch black!" << endl;
+		if (hasEnemies())
+		{
+			cout << "You hear a dangerous sound, it's better to get some light" << endl;
+		}
 	}
+	else
+	{
+		for (auto item : items)
+		{
+			cout << "A " << item->getName() << " is here" << endl;
+		}
+		for (auto enemy : enemies)
+		{
+			cout << enemy->getName() << endl;
+		}
+	}
+	cout << endl;
 }
 
 Item* Scene::take(string& item)
@@ -97,6 +121,11 @@ Item* Scene::take(string& item)
 
 Item* Scene::take(string& container, string& item)
 {
+	if (isDark() && !isIlluminated())
+	{
+		cout << "It's dark, you can't see anything" << endl;
+		return nullptr;
+	}
 	auto c = take(container);
 	if (c == nullptr)
 	{
@@ -107,6 +136,11 @@ Item* Scene::take(string& container, string& item)
 
 list<Item*> Scene::takeAll()
 {
+	if (isDark() && !isIlluminated())
+	{
+		cout << "It's dark, you can't see anything" << endl;
+		return {};
+	}
 	auto result = list<Item*>(this->items);
 	this->items.clear();
 	return result;
