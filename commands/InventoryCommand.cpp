@@ -10,4 +10,5 @@ InventoryCommand::~InventoryCommand()
 
 void InventoryCommand::Execute()
 {
+	hero->printStats();
 }

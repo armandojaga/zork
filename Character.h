@@ -31,6 +31,7 @@ public:
 	int getDamage() const { return this->damage; }
 	int getHealth() const { return this->health; }
 	Scene* getCurrentScene() const { return this->currentScene; }
+	bool hasItems()const { return !this->items.empty(); }
 
 	bool isAlive() const { return this->health > 0; }
 

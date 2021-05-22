@@ -19,10 +19,12 @@ void Hero::printStats()
 	cout << "        " << name << endl;
 	cout << "----------------------" << endl;
 	cout << " " << "Health: " << health << endl;
-	cout << " " << "Items" << endl;
-	for (auto item : this->getItems())
-	{
-		cout << " " << "- " << item->getName() << endl;
+	if (hasItems()) {
+		cout << " " << "Items" << endl;
+		for (auto item : this->getItems())
+		{
+			cout << " " << "- " << item->getName() << endl;
+		}
 	}
 	cout << delimiter << endl;
 	cout << endl;
