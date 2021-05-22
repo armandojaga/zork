@@ -75,7 +75,19 @@ void Scene::removeEnemy(Character* enemy)
 
 void Scene::printBrief()
 {
-	cout <<
+	cout << name << endl;
+	cout << description << endl;
+	for (auto path : paths)
+	{
+		if(path->getDirection() != UP && path->getDirection() != DOWN)
+		{
+			cout << "There is a path leading to " << path->getScene()->getShortDescription() << " to the " << directionNameMap.at(path->getDirection()) << " of here" << endl;
+		}
+	}
+	for (auto item : items)
+	{
+		cout << "A " << item->getName() << " is here" << endl;
+	}
 }
 
 Item* Scene::take(string& item)

@@ -4,6 +4,7 @@
 
 #include "commands/EmptyCommand.h"
 #include "commands/GoCommand.h"
+#include "commands/LookCommand.h"
 
 string CommandPaser::ToUpper(string& str) const
 {
@@ -43,7 +44,14 @@ Command* CommandPaser::Parse(vector<string>& args, Hero* hero) const
 	case DROP: break;
 	case INVENTORY: break;
 	case HELP: break;
-	case LOOK: break;
+	case LOOK:
+		if (args.empty()) {
+			command = new LookCommand();
+		}else
+		{
+			cout << "You can't look at that" << endl;
+		}
+		break;
 	case OPEN: break;
 	case EMPTY:
 	default:

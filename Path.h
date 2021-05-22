@@ -34,6 +34,17 @@ static const unordered_map<string, Direction> directionMap = {
 	{"DOWN", DOWN}, {"D", DOWN}
 };
 
+static const unordered_map<Direction, string> directionNameMap = {
+	{NORTH, "north"},
+	{SOUTH, "south"},
+	{EAST, "east"},
+	{WEST, "west"},
+	{SE, "southeast"},
+	{SW, "southwest"},
+	{NE, "northeast"},
+	{NW, "northwest"}
+};
+
 class Path
 {
 private:
@@ -47,7 +58,7 @@ public:
 	Scene* getScene() const { return this->scene; }
 	void setScene(Scene*);
 
-	static const Direction DirectionFromName(string& directionName)
+	static Direction DirectionFromName(string& directionName)
 	{
 		try
 		{
