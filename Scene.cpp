@@ -129,8 +129,14 @@ void Scene::printBrief()
 		}
 		for (auto enemy : enemies)
 		{
-			if (isBeingIlluminated) {
-				cout << "You see a fearsome " << enemy->getName() << endl;
+			if (!isDark() || isIlluminated()) {
+				if (enemy->isAlive()) {
+					cout << "You see a fearsome " << enemy->getName() << endl;
+				}
+				else
+				{
+					cout << "You see the remains of " << enemy->getName() << endl;
+				}
 			}
 		}
 	}

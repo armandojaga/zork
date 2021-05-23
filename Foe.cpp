@@ -20,3 +20,28 @@ void Foe::printStats()
 	}
 	cout << endl;
 }
+
+Item* Foe::getCurrentWeapon()
+{
+	if(this->getWeapons().empty())
+	{
+		return nullptr;
+	}
+	return this->getWeapons().front();
+}
+
+void Foe::dropDead()
+{
+	cout << endl;
+	cout << getName() << " died";
+	if(hasItems())
+	{
+		cout << " and dropped:" << endl;
+		for (auto item : this->getItems())
+		{
+			cout << "+ "<< item->getName() << endl;
+			this->dropItem(item);
+		}
+	}
+	cout << endl;
+}

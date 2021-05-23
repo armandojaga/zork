@@ -13,5 +13,5 @@ int main()
 		cerr << e.what() << endl;
 		return 1;
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }

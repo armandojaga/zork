@@ -59,6 +59,8 @@ public:
 	void add(Item* item);
 	bool IsContainer() const { return this->type == BOX || this->type == LOCKED_BOX || this->type == OPEN_BOX; }
 	bool IsLocked() const { return this->type == LOCKED_BOX; }
+	bool isWeapon() const { return this->type == WEAPON || this->type == RANGE_WEAPON; }
+	bool isAmmo() const { return this->type == AMMO; }
 
 	bool operator==(Item& other) const { return this->name == other.name; }
 	friend bool operator==(Item* item, string _name) { return item->name == _name; }

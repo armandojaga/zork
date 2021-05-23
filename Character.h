@@ -13,7 +13,11 @@ class Character
 {
 private:
 	list<Item*> items;
+	list<Item*> weapons;
+	list<Item*> ammo;
 	Scene* currentScene;
+	void _remove(Item*);
+	void _add(Item*);
 
 protected:
 	string name;
@@ -32,10 +36,12 @@ public:
 	int getHealth() const { return this->health; }
 	Scene* getCurrentScene() const { return this->currentScene; }
 	bool hasItems() const { return !this->items.empty(); }
+	list<Item*> getWeapons() const { return this->weapons; }
+	list<Item*> getAmmo() const { return this->ammo; }
 
 	bool isAlive() const { return this->health > 0; }
 
-	void attack(Character* enemy);
+	int attack(Character& enemy);
 	void takeHit(const int& damage);
 	void heal(const int& health);
 	void dropItem(Item* item);
@@ -47,4 +53,6 @@ public:
 	void take(Item* container, Item* item);
 
 	virtual void printStats() = 0;
+	virtual Item* getCurrentWeapon() = 0;
+	virtual void dropDead() = 0;
 };

@@ -61,6 +61,8 @@ void Game::Loop()
 		
 		tokens.clear();
 	}
+	cout << endl;
+	cout << "Thank you for playing" << endl;
 }
 
 void Game::ExecuteCommand(Command* command)

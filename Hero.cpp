@@ -116,3 +116,61 @@ void Hero::open(Item& toOpen)
 		cout << "You can't open that" << endl;
 	}
 }
+
+Item* Hero::getCurrentWeapon()
+{
+	return nullptr;
+}
+
+void Hero::attack(Character& enemy, Item* weapon)
+{
+	cout << "You attacked " << enemy.getName();
+	if (rand() % 100 < 90) {//90% change of attacking
+		int dmg = this->getDamage();
+		if(weapon)
+		{
+			if(weapon->getType() == RANGE_WEAPON)
+			{
+				Item* ammo = this->getAmmo().front();
+				dmg = ammo->getMagnitude();
+				this->remove(ammo);
+			}
+			else
+			{
+				dmg = weapon->getMagnitude();
+			}
+		}
+		enemy.takeHit(dmg);
+		cout << " and caused " << dmg << " of damage [" << enemy.getName() << "'s health: "<< enemy.getHealth() << "]" << endl;
+	}else
+	{
+		cout << ", but missed" << endl;
+	}
+	if (enemy.isAlive()) {
+		cout << enemy.getName() << " attacked you back";
+		if(rand() % 100 < 80)//80% change of attacking
+		{
+			const int dmg = enemy.attack(*this);
+			cout <<" and caused " << dmg << " of damage" << endl;
+		}else
+		{
+			cout << " , but missed" << endl;
+		}
+	} else
+	{
+		enemy.dropDead();
+	}
+	if(!isAlive())
+	{
+		dropDead();
+	}else if(this->getHealth() <=15)
+	{
+		cout << "You're badly hurt" << endl;
+	}
+}
+
+void Hero::dropDead()
+{
+	cout << endl;
+	cout << "You died, this is the end of your adventure in this mysterious world" << endl;
+}

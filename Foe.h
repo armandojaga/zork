@@ -8,4 +8,6 @@ public:
 	Foe(string& name, string& description, int& health, int& damage);
 	~Foe() override;
 	void printStats() override;
+	Item* getCurrentWeapon() override;
+	void dropDead() override;
 };

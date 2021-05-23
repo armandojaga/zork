@@ -2,6 +2,7 @@
 
 #include <algorithm>
 
+#include "commands/AttackCommand.h"
 #include "commands/DropCommand.h"
 #include "commands/EatCommand.h"
 #include "commands/EmptyCommand.h"
@@ -45,7 +46,17 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 			}
 		}
 		break;
-	case ATTACK: break;
+	case ATTACK:
+		if (args.empty())
+		{
+			cout << "Which foe do you want to attack?" << endl;
+			command = new NonCommand();
+		}
+		else
+		{
+			command = new AttackCommand(hero, args);
+		}
+		break;
 	case TAKE:
 		if (args.empty())
 		{

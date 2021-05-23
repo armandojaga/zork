@@ -9,6 +9,9 @@ public:
 	~Hero() override;
 	void printStats() override;
 	void go(Direction&);
-	void open(Item&);	
+	void open(Item&);
+	Item* getCurrentWeapon() override;
+	void attack(Character& enemy, Item* weapon);
+	void dropDead() override;
 };
 
