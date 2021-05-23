@@ -1,0 +1,11 @@
+cave
+Cave
+a small cave
+A cold cave with a stench of death
+DARK
+#PATHS#
+WEST|cabin
+#ITEMS#
+Radio|STORY|0|NONE
+#FOES#
+Bear|A huge bear|100|15|Radio

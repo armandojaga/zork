@@ -1,0 +1,12 @@
+forest_trail
+Forest trail
+a forest trail
+A trail in a dense forest
+#PATHS#
+WEST|start
+NORTH|forest
+EAST|cabin
+#ITEMS#
+Speaker|STORY|0|NONE
+#FOES#
+Snake|A black snake|10|5|Speaker

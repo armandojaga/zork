@@ -1,0 +1,14 @@
+cabin
+Cabin
+a small cabin
+An rustic cabin, there is a water well close by, maybe you can climb it down
+#PATHS#
+EAST|cave
+NW|forest
+WEST|forest_trail
+DOWN|water_well
+#ITEMS#
+Chest|LOCKED_BOX|0|NONE
+Sword|WEAPON|20|Chest
+Lamp|LIGHT|0|Chest
+#FOES#

@@ -1,0 +1,11 @@
+deep_forest
+Deep forest
+a dark part of the forest
+This seems to be the heart of the forest
+#PATHS#
+SW|forest
+#ITEMS#
+Knife|WEAPON|10|NONE
+Antenna|STORY|0|NONE
+#FOES#
+Goblin|A forest goblin|50|5|Knife|Antenna
