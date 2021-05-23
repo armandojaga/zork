@@ -2,8 +2,8 @@
 #define ZORK_COMMANDS_ATTACK_COMMAND_H
 
 #include "AbstractCommand.h"
+#include "../characters/Hero.h"
 
-class Hero;
 
 class AttackCommand : public AbstractCommand
 {

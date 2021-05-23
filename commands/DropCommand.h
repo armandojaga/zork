@@ -2,8 +2,7 @@
 #define ZORK_COMMANDS_DROP_COMMAND_H
 
 #include "AbstractCommand.h"
-
-class Hero;
+#include "../characters/Hero.h"
 
 class DropCommand : public AbstractCommand
 {

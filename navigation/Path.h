@@ -3,8 +3,7 @@
 
 #include <string>
 #include <unordered_map>
-
-class Scene;
+#include "../navigation/Scene.h"
 
 enum eDirection
 {

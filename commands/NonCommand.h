@@ -2,8 +2,7 @@
 #define ZORK_COMMANDS_NON_COMMAND_H
 
 #include "AbstractCommand.h"
-
-class Hero;
+#include "../characters/Hero.h"
 
 class NonCommand : public AbstractCommand
 {

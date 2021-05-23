@@ -8,8 +8,6 @@
 #include "../Item.h"
 #include "Path.h"
 
-class Character;
-
 class Scene
 {
 private:

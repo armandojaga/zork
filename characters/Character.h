@@ -6,8 +6,6 @@
 #include "../Item.h"
 #include "../navigation/Scene.h"
 
-class Scene;
-
 class Character
 {
 private:

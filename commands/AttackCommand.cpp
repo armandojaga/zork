@@ -1,11 +1,10 @@
-#include "AttackCommand.h"
-#include "../Util.h"
-
 #include <iostream>
 
-using namespace std;
+#include "AttackCommand.h"
+#include "../Util.h"
+#include "../characters/Foe.h"
 
-class Foe;
+using namespace std;
 
 AttackCommand::AttackCommand(Hero* hero, const vector<string>& params) : AbstractCommand(hero), params(params)
 {
