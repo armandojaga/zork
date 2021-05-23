@@ -1,15 +1,11 @@
 #include "NonCommand.h"
 
 
-NonCommand::NonCommand(): Command(nullptr)
+NonCommand::NonCommand(): AbstractCommand(nullptr)
 {
 }
 
-NonCommand::NonCommand(Hero* hero): Command(hero)
-{
-}
-
-NonCommand::~NonCommand()
+NonCommand::NonCommand(Hero* hero): AbstractCommand(hero)
 {
 }
 

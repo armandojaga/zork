@@ -1,24 +1,24 @@
-﻿#pragma once
+﻿#ifndef ZORK_UTIL_H
+#define ZORK_UTIL_H
+
 #include <string>
 #include <algorithm>
 #include <functional>
 #include <list>
 
-using namespace std;
-
 class Util
 {
 public:
 	template <typename T>
-	static list<T> filter(const list<T>& source, function<bool(const T&)> predicate)
+	static std::list<T> filter(const std::list<T>& source, std::function<bool(const T&)> predicate)
 	{
-		list<T> filtered;
-		copy_if(source.begin(), source.end(), back_inserter(filtered), predicate);
+		std::list<T> filtered;
+		copy_if(source.begin(), source.end(), std::back_inserter(filtered), predicate);
 		return filtered;
 	}
 
 	template <typename T>
-	static T* find(const list<T*> source, function<bool(const T*)> predicate)
+	static T* find(const std::list<T*> source, std::function<bool(const T*)> predicate)
 	{
 		for (auto i : source)
 		{
@@ -30,8 +30,10 @@ public:
 		return nullptr;
 	}
 
-	static bool areEqualsIgnoreCase(const string& a, const string& b)
+	static bool areEqualsIgnoreCase(const std::string& a, const std::string& b)
 	{
 		return _stricmp(a.c_str(), b.c_str()) == 0;
 	}
 };
+
+#endif  //ZORK_UTIL_H

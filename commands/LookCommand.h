@@ -1,13 +1,22 @@
-#pragma once
+#ifndef ZORK_COMMANDS_LOOK_COMMAND_H
+#define ZORK_COMMANDS_LOOK_COMMAND_H
 
-#include "Command.h"
+#include "AbstractCommand.h"
 
 class Hero;
 
-class LookCommand : public Command
+class LookCommand : public AbstractCommand
 {
 public:
 	LookCommand(Hero* hero);
-	~LookCommand() override;
+	LookCommand(const LookCommand&) = delete;
+	LookCommand& operator =(const LookCommand&) = delete;
+	LookCommand(LookCommand&&) = delete;
+	LookCommand& operator=(LookCommand&&) = delete;
+
+	~LookCommand() override = default;
+
 	void Execute() override;
 };
+
+#endif  //ZORK_COMMANDS_LOOK_COMMAND_H

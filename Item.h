@@ -1,11 +1,11 @@
-﻿#pragma once
+﻿#ifndef ZORK_ITEM_H
+#define ZORK_ITEM_H
+
 #include <string>
 #include <list>
 #include <unordered_map>
 
-using namespace std;
-
-enum ItemType
+enum eItemType
 {
 	LOCKED_BOX,
 	BOX,
@@ -20,7 +20,7 @@ enum ItemType
 	STORY
 };
 
-static const unordered_map<std::string, ItemType> itemTypeMap = {
+static const std::unordered_map<std::string, eItemType> itemTypeMap = {
 	{"LOCKED_BOX", LOCKED_BOX},
 	{"BOX", BOX},
 	{"WEAPON", WEAPON},
@@ -36,25 +36,31 @@ static const unordered_map<std::string, ItemType> itemTypeMap = {
 class Item
 {
 private:
-	string name;
-	ItemType type;
+	std::string name;
+	eItemType type;
 	int magnitude;
-	list<Item*> items;
+	std::list<Item*> items;
 
-	Item* get(string& item);
+	Item* get(std::string& item);
 
 public:
 	Item();
+	Item(const Item&) = delete;
+	Item& operator =(const Item&) = delete;
+	Item(Item&&) = delete;
+	Item& operator=(Item&&) = delete;
+
 	~Item();
-	string getName() const { return this->name; }
-	ItemType getType() const { return this->type; }
+
+	std::string getName() const { return this->name; }
+	eItemType getType() const { return this->type; }
 	int getMagnitude() const { return this->magnitude; }
 	bool hasItems() const { return !this->items.empty(); }
-	list<Item*> getItems() const { return this->items; }
+	std::list<Item*> getItems() const { return this->items; }
 
-	void setName(string name);
-	void setType(string type);
-	void setType(ItemType& type);
+	void setName(std::string& name);
+	void setType(std::string& type);
+	void setType(eItemType& type);
 	void setMagnitude(int& magnitude);
 
 	void remove(Item* item);
@@ -64,7 +70,6 @@ public:
 	bool isWeapon() const { return this->type == WEAPON || this->type == RANGE_WEAPON; }
 	bool isAmmo() const { return this->type == AMMO; }
 	bool isStory() const { return this->type == STORY; }
-
-	bool operator==(Item& other) const { return this->name == other.name; }
-	friend bool operator==(Item* item, string _name) { return item->name == _name; }
 };
+
+#endif  //ZORK_ITEM_H

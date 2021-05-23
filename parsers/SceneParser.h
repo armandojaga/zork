@@ -1,10 +1,9 @@
-#pragma once
+#ifndef ZORK_PARSERS_SCENE_PARSER_H
+#define ZORK_PARSERS_SCENE_PARSER_H
+
 #include <string>
 #include "../navigation/Scene.h"
 #include <list>
-#include <map>
-
-using namespace std;
 
 class SceneParser
 {
@@ -14,12 +13,12 @@ class SceneParser
 private:
 	struct PendingPath
 	{
-		string targetScene;
+		std::string targetScene;
 		Path* path;
-		string scene;
+		std::string scene;
 		bool loaded;
 
-		PendingPath(const string& scene, Path* p, string& targetScene)
+		PendingPath(const std::string& scene, Path* p, std::string& targetScene)
 		{
 			this->loaded = false;
 			this->scene = scene;
@@ -28,13 +27,22 @@ private:
 		}
 	};
 
-	list<Scene*> scenes;
-	list<string> loadedScenes;
-	list<string> Split(string& s) const;
-	vector<PendingPath> pendingPaths;
-	Item* getItem(list<Item*> items, const string& item);
+	std::list<Scene*> scenes;
+	std::list<std::string> loadedScenes;
+	std::list<std::string> Split(std::string& s) const;
+	std::vector<PendingPath> pendingPaths;
+	Item* getItem(const std::list<Item*>& items, const std::string& item);
+
 public:
-	SceneParser();
+	SceneParser() = default;
+	SceneParser(const SceneParser&) = delete;
+	SceneParser& operator =(const SceneParser&) = delete;
+	SceneParser(SceneParser&&) = delete;
+	SceneParser& operator=(SceneParser&&) = delete;
+
 	~SceneParser();
-	list<Scene*> Parse(const string& sceneFile);
+
+	std::list<Scene*> Parse(const std::string& sceneFile);
 };
+
+#endif  //ZORK_PARSERS_SCENE_PARSER_H

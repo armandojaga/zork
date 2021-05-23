@@ -8,17 +8,17 @@ Item::Item()
 };
 
 
-void Item::setName(string name)
+void Item::setName(std::string& name)
 {
 	this->name = name;
 }
 
-void Item::setType(string type)
+void Item::setType(std::string& type)
 {
 	this->type = itemTypeMap.at(type);
 }
 
-void Item::setType(ItemType& type)
+void Item::setType(eItemType& type)
 {
 	this->type = type;
 }
@@ -41,7 +41,7 @@ void Item::remove(Item* item)
 	this->items.remove(item);
 }
 
-Item* Item::get(string& item)
+Item* Item::get(std::string& item)
 {
 	return Util::filter<Item*>(this->items, [&](const Item* i) { return i->name == item; }).front();
 }

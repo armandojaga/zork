@@ -2,8 +2,11 @@
 #include "../Util.h"
 
 #include <iostream>
+#include <utility>
 
-TakeCommand::TakeCommand(Hero* hero, const string& item) : Command(hero), item(item)
+using namespace std;
+
+TakeCommand::TakeCommand(Hero* hero, string item) : AbstractCommand(hero), item(std::move(item))
 {
 };
 
@@ -37,7 +40,7 @@ void TakeCommand::Execute()
 			if (sceneItem->IsContainer() && Util::areEqualsIgnoreCase(item, sceneItem->getName()))
 			{
 				cout << "You can't take that" << endl;
-				took = true;//this is to skip the next validation
+				took = true; //this is to skip the next validation
 				break;
 			}
 			if (sceneItem->IsContainer() && sceneItem->getType() != OPEN_BOX)
@@ -86,5 +89,3 @@ void TakeCommand::Execute()
 		}
 	}
 }
-
-TakeCommand::~TakeCommand() = default;

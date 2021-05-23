@@ -56,9 +56,6 @@
     <ClCompile Include="commands\AttackCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
-    <ClCompile Include="commands\Command.cpp">
-      <Filter>Source Files\commands</Filter>
-    </ClCompile>
     <ClCompile Include="commands\DropCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
@@ -110,6 +107,9 @@
     <ClCompile Include="navigation\Scene.cpp">
       <Filter>Source Files\navigation</Filter>
     </ClCompile>
+    <ClCompile Include="commands\AbstractCommand.cpp">
+      <Filter>Source Files\commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -122,9 +122,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="commands\AttackCommand.h">
-      <Filter>Header Files\commands</Filter>
-    </ClInclude>
-    <ClInclude Include="commands\Command.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
     <ClInclude Include="commands\DropCommand.h">
@@ -177,6 +174,9 @@
     </ClInclude>
     <ClInclude Include="navigation\Scene.h">
       <Filter>Header Files\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="commands\AbstractCommand.h">
+      <Filter>Header Files\commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

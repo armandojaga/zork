@@ -1,11 +1,10 @@
 #include "Path.h"
 
-Path::Path(Direction direction): direction(direction)
+Path::Path(eDirection direction): direction(direction)
 {
 	this->scene = nullptr;
 }
 
-Path::~Path() = default;
 
 void Path::setScene(Scene* scene)
 {
