@@ -26,7 +26,7 @@ Here is the list of the available commands in the game, along with a description
 
 You have to enter commands to instruct the character on what to do.  
 What you see in parenthesis is a shortcut for the command, you can enter either the full command or the shortucut, 
-followed by the target parameter, insde "*{}*" are optional parameters, "|" indicates that you can use one or the other.
+followed by the target parameter, inside "*{}*" are optional parameters, "|" indicates that you can use one or the other.
 
 The format is: **command (*shorcut*) [*target*]**
 
