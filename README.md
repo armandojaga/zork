@@ -11,6 +11,10 @@
 All the code is located in my personal github repository:  
 https://github.com/armandojaga/zork
 
+## License
+This project is developed under the following [license](./LICENSE.txt):  
+**GNU GENERAL PUBLIC LICENSE Version 3**
+
 ## About
 This is my take on Zork for admission to the Advanced Programming for AAA Video Games program.
 
