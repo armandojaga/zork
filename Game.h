@@ -1,8 +1,8 @@
 #pragma once
-#include "CommandParser.h"
-#include "Hero.h"
-#include "SceneParser.h"
-#include "Scene.h"
+#include "parsers//CommandParser.h"
+#include "characters/Hero.h"
+#include "parsers/SceneParser.h"
+#include "navigation/Scene.h"
 #include "commands/Command.h"
 
 using namespace std;

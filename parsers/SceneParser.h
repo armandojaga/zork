@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Scene.h"
+#include "../navigation/Scene.h"
 #include <list>
 #include <map>
 

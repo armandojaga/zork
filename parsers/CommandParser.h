@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <list>
 
-#include "commands/Command.h"
+#include "../commands/Command.h"
 
 class CommandParser
 {

@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "../Hero.h"
+#include "../characters/Hero.h"
 
 using namespace std;
 

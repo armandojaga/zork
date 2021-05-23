@@ -2,17 +2,17 @@
 
 #include <algorithm>
 
-#include "commands/AttackCommand.h"
-#include "commands/DropCommand.h"
-#include "commands/EatCommand.h"
-#include "commands/EmptyCommand.h"
-#include "commands/GoCommand.h"
-#include "commands/HelpCommand.h"
-#include "commands/InventoryCommand.h"
-#include "commands/LookCommand.h"
-#include "commands/OpenCommand.h"
-#include "commands/NonCommand.h"
-#include "commands/TakeCommand.h"
+#include "../commands/AttackCommand.h"
+#include "../commands/DropCommand.h"
+#include "../commands/EatCommand.h"
+#include "../commands/EmptyCommand.h"
+#include "../commands/GoCommand.h"
+#include "../commands/HelpCommand.h"
+#include "../commands/InventoryCommand.h"
+#include "../commands/LookCommand.h"
+#include "../commands/OpenCommand.h"
+#include "../commands/NonCommand.h"
+#include "../commands/TakeCommand.h"
 
 string CommandParser::ToUpper(string& str) const
 {
@@ -36,6 +36,12 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 	switch (type)
 	{
 	case GO:
+		if (args.empty())
+		{
+			cout << "Where do you want to go?" << endl;
+			command = new NonCommand();
+		}
+		else
 		{
 			userCommand = args[0];
 			ToUpper(userCommand);

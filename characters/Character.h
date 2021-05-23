@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-#include "Item.h"
-#include "Scene.h"
+#include "../Item.h"
+#include "../navigation/Scene.h"
 
 class Scene;
 

@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-#include "Util.h"
+#include "../Util.h"
 
 Scene::Scene(bool isDark)
 {

@@ -30,6 +30,18 @@
     <Filter Include="Header Files\parsers">
       <UniqueIdentifier>{1cde3ac5-8ad7-4fba-950e-083b454c7f84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\characters">
+      <UniqueIdentifier>{ecc99c91-7035-437c-a2d6-8000658fc31c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\characters">
+      <UniqueIdentifier>{266bd6a9-c8a6-4946-8964-842f83e7b63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\navigation">
+      <UniqueIdentifier>{eb93774d-c56e-4d39-ad6c-0c038f459ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\navigation">
+      <UniqueIdentifier>{860ccc15-e98c-4c89-be7e-087ece93eb3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -38,29 +50,8 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Foe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Path.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneParser.cpp">
-      <Filter>Source Files\parsers</Filter>
-    </ClCompile>
-    <ClCompile Include="CommandParser.cpp">
-      <Filter>Source Files\parsers</Filter>
     </ClCompile>
     <ClCompile Include="commands\AttackCommand.cpp">
       <Filter>Source Files\commands</Filter>
@@ -98,12 +89,30 @@
     <ClCompile Include="commands\EatCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
+    <ClCompile Include="parsers\CommandParser.cpp">
+      <Filter>Source Files\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="parsers\SceneParser.cpp">
+      <Filter>Source Files\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="characters\Foe.cpp">
+      <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="characters\Hero.cpp">
+      <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="characters\Character.cpp">
+      <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="navigation\Path.cpp">
+      <Filter>Source Files\navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="navigation\Scene.cpp">
+      <Filter>Source Files\navigation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Util.h">
@@ -111,24 +120,6 @@
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Foe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hero.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneParser.h">
-      <Filter>Header Files\parsers</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandParser.h">
-      <Filter>Header Files\parsers</Filter>
     </ClInclude>
     <ClInclude Include="commands\AttackCommand.h">
       <Filter>Header Files\commands</Filter>
@@ -165,6 +156,27 @@
     </ClInclude>
     <ClInclude Include="commands\EatCommand.h">
       <Filter>Header Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="parsers\CommandParser.h">
+      <Filter>Header Files\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="parsers\SceneParser.h">
+      <Filter>Header Files\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="characters\Character.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="characters\Foe.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="characters\Hero.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="navigation\Path.h">
+      <Filter>Header Files\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="navigation\Scene.h">
+      <Filter>Header Files\navigation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

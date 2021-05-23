@@ -5,8 +5,8 @@
 #include <sstream>
 
 #include "Util.h"
-#include "Hero.h"
-#include "SceneParser.h"
+#include "characters/Hero.h"
+#include "parsers/SceneParser.h"
 
 Game::Game()
 {

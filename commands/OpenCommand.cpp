@@ -1,6 +1,6 @@
 #include "OpenCommand.h"
 #include "../Util.h"
-#include "../Scene.h"
+#include "../navigation/Scene.h"
 
 OpenCommand::OpenCommand(Hero* hero, const string& item): Command(hero), item(item)
 {

@@ -2,8 +2,8 @@
 #include <string>
 #include <list>
 
-#include "Character.h"
-#include "Item.h"
+#include "../characters/Character.h"
+#include "../Item.h"
 #include "Path.h"
 
 class Character;

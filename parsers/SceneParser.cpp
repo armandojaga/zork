@@ -4,9 +4,9 @@
 
 #include "SceneParser.h"
 
-#include "Foe.h"
-#include "Item.h"
-#include "Util.h"
+#include "../characters/Foe.h"
+#include "../Item.h"
+#include "../Util.h"
 
 SceneParser::SceneParser() = default;
 

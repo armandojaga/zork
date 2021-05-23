@@ -151,9 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="CommandParser.cpp" />
-    <ClInclude Include="CommandParser.h" />
+    <ClCompile Include="characters\Character.cpp" />
+    <ClCompile Include="characters\Foe.cpp" />
+    <ClCompile Include="characters\Hero.cpp" />
     <ClCompile Include="commands\AttackCommand.cpp" />
     <ClCompile Include="commands\Command.cpp" />
     <ClCompile Include="commands\DropCommand.cpp" />
@@ -166,17 +166,18 @@
     <ClCompile Include="commands\OpenCommand.cpp" />
     <ClCompile Include="commands\TakeCommand.cpp" />
     <ClCompile Include="commands\NonCommand.cpp" />
-    <ClCompile Include="Foe.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Path.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneParser.cpp" />
+    <ClCompile Include="navigation\Path.cpp" />
+    <ClCompile Include="navigation\Scene.cpp" />
+    <ClCompile Include="parsers\CommandParser.cpp" />
+    <ClCompile Include="parsers\SceneParser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Character.h" />
+    <ClInclude Include="characters\Character.h" />
+    <ClInclude Include="characters\Foe.h" />
+    <ClInclude Include="characters\Hero.h" />
     <ClInclude Include="commands\AttackCommand.h" />
     <ClInclude Include="commands\Command.h" />
     <ClInclude Include="commands\DropCommand.h" />
@@ -189,13 +190,12 @@
     <ClInclude Include="commands\OpenCommand.h" />
     <ClInclude Include="commands\TakeCommand.h" />
     <ClInclude Include="commands\NonCommand.h" />
-    <ClInclude Include="Foe.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Hero.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Path.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneParser.h" />
+    <ClInclude Include="navigation\Path.h" />
+    <ClInclude Include="navigation\Scene.h" />
+    <ClInclude Include="parsers\CommandParser.h" />
+    <ClInclude Include="parsers\SceneParser.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
