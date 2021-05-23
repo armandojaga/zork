@@ -180,34 +180,34 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="help.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <None Include="resources\scenes\cabin.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\cave.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\deep_forest.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\forest.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\forest_trail.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\start.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\tree_top.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
+    <None Include="resources\scenes\water_well.scene">
+      <Filter>Resource Files\scenes</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="scenes\cabin.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\cave.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\deep_forest.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\forest.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\forest_trail.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\start.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\tree_top.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
-    <None Include="scenes\water_well.scene">
-      <Filter>Resource Files\scenes</Filter>
-    </None>
+    <Text Include="resources\help.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

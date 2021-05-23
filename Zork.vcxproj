@@ -199,17 +199,17 @@
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="help.txt" />
+    <None Include="resources\scenes\cabin.scene" />
+    <None Include="resources\scenes\cave.scene" />
+    <None Include="resources\scenes\deep_forest.scene" />
+    <None Include="resources\scenes\forest.scene" />
+    <None Include="resources\scenes\forest_trail.scene" />
+    <None Include="resources\scenes\start.scene" />
+    <None Include="resources\scenes\tree_top.scene" />
+    <None Include="resources\scenes\water_well.scene" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="scenes\cabin.scene" />
-    <None Include="scenes\cave.scene" />
-    <None Include="scenes\deep_forest.scene" />
-    <None Include="scenes\forest.scene" />
-    <None Include="scenes\forest_trail.scene" />
-    <None Include="scenes\start.scene" />
-    <None Include="scenes\tree_top.scene" />
-    <None Include="scenes\water_well.scene" />
+    <Text Include="resources\help.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
