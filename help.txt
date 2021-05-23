@@ -6,7 +6,6 @@ Available commands:
 	north(n), south(s), east(e), west(w), northeast(ne), northwest(nw), southeast(se), southwest(sw), up(u), down(d)
 go [direction] : travels to the specified direction
 attack (kill) [enemy] : attacks a particular enemy
-examine [item] : shows the item's description
 take [item|all] : adds an item to the player's inventory, use "all" to add all available items in the scene
 drop [item|all] : removes a particular item from the player's inventory, use "all" to remove all items
 inventory (i) : shows the items in the player's inventory

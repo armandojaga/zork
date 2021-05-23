@@ -10,7 +10,6 @@ enum CommandType
 {
 	GO,
 	ATTACK,
-	EXAMINE,
 	TAKE,
 	DROP,
 	INVENTORY,
@@ -24,7 +23,6 @@ enum CommandType
 static const unordered_map<string, CommandType> commandMap = {
 	{"GO", GO},
 	{"ATTACK", ATTACK}, {"KILL", ATTACK},
-	{"EXAMINE", EXAMINE},
 	{"TAKE", TAKE},
 	{"DROP", DROP},
 	{"INVENTORY", INVENTORY}, {"I", INVENTORY},

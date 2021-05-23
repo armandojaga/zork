@@ -74,9 +74,6 @@
     <ClCompile Include="commands\EmptyCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
-    <ClCompile Include="commands\ExamineCommand.cpp">
-      <Filter>Source Files\commands</Filter>
-    </ClCompile>
     <ClCompile Include="commands\GoCommand.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
@@ -143,9 +140,6 @@
       <Filter>Header Files\commands</Filter>
     </ClInclude>
     <ClInclude Include="commands\EmptyCommand.h">
-      <Filter>Header Files\commands</Filter>
-    </ClInclude>
-    <ClInclude Include="commands\ExamineCommand.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
     <ClInclude Include="commands\GoCommand.h">

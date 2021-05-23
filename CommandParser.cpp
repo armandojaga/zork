@@ -46,7 +46,6 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 		}
 		break;
 	case ATTACK: break;
-	case EXAMINE: break;
 	case TAKE:
 		if (args.empty())
 		{
