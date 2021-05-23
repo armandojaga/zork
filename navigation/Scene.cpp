@@ -1,11 +1,15 @@
-#include "Scene.h"
+#include <iostream>
 
+#include "Scene.h"
 #include "../Util.h"
+
+using namespace std;
 
 Scene::Scene(bool isDark)
 {
 	this->dark = isDark;
-	isBeingIlluminated = false;
+	this->isBeingIlluminated = false;
+	this->visited = false;
 }
 
 void Scene::addPath(Path* path)
@@ -13,12 +17,12 @@ void Scene::addPath(Path* path)
 	this->paths.push_back(path);
 }
 
-Path* Scene::getPath(Direction direction)
+Path* Scene::getPath(eDirection direction)
 {
 	return Util::find<Path>(this->paths, [&](const Path* p) { return p->getDirection() == direction; });
 }
 
-bool Scene::hasPath(Direction direction)
+bool Scene::hasPath(eDirection direction)
 {
 	return getPath(direction);
 }
@@ -53,7 +57,7 @@ void Scene::setIlluminated(const bool isBeingIlluminated)
 	this->isBeingIlluminated = isBeingIlluminated;
 }
 
-void Scene::setItems(list<Item*> items)
+void Scene::setItems(list<Item*>& items)
 {
 	this->items = items;
 }
@@ -83,7 +87,8 @@ void Scene::printBrief()
 {
 	const function<void(Item& i)> printItemInfo([&](Item& i)
 	{
-		if (i.getType() == OPEN_BOX) {
+		if (i.getType() == OPEN_BOX)
+		{
 			if (i.hasItems())
 			{
 				cout << ", it contains: " << endl;
@@ -99,7 +104,7 @@ void Scene::printBrief()
 		}
 		cout << endl;
 	});
-	
+
 	cout << name << endl;
 	cout << description << endl;
 	for (auto path : paths)
@@ -120,7 +125,6 @@ void Scene::printBrief()
 	}
 	else
 	{
-		
 		for (auto item : items)
 		{
 			cout << "A " << item->getName() << " is here";
@@ -128,9 +132,12 @@ void Scene::printBrief()
 		}
 		for (auto enemy : enemies)
 		{
-			if (!isDark() || isIlluminated()) {
-				if (enemy->isAlive()) {
-					if (visited) {
+			if (!isDark() || isIlluminated())
+			{
+				if (enemy->isAlive())
+				{
+					if (visited)
+					{
 						cout << "You see a fearsome " << enemy->getName() << endl;
 					}
 					else

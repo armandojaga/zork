@@ -1,10 +1,10 @@
+#include <iostream>
+
 #include "Foe.h"
 
-Foe::Foe(string& name, string& description, int& health, int& damage) : Character(name, description, health, damage)
-{
-}
+using namespace std;
 
-Foe::~Foe()
+Foe::Foe(string& name, string& description, int& health, int& damage) : Character(name, description, health, damage)
 {
 }
 
@@ -14,7 +14,7 @@ void Foe::printStats()
 
 Item* Foe::getCurrentWeapon()
 {
-	if(this->getWeapons().empty())
+	if (this->getWeapons().empty())
 	{
 		return nullptr;
 	}
@@ -25,12 +25,12 @@ void Foe::dropDead()
 {
 	cout << endl;
 	cout << getName() << " died";
-	if(hasItems())
+	if (hasItems())
 	{
 		cout << " and dropped:" << endl;
 		for (auto item : this->getItems())
 		{
-			cout << "+ "<< item->getName() << endl;
+			cout << "+ " << item->getName() << endl;
 			this->dropItem(item);
 		}
 	}

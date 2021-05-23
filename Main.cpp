@@ -5,12 +5,12 @@ int main()
 {
 	try
 	{
-		Game game;
+		const Game game;
 		game.Start();
 	}
-	catch (exception& e)
+	catch (std::exception& e)
 	{
-		cerr << e.what() << endl;
+		std::cerr << e.what() << std::endl;
 		return 1;
 	}
 	return EXIT_SUCCESS;

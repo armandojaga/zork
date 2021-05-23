@@ -1,7 +1,8 @@
-#include "Character.h"
 #include <algorithm>
 
-Character::Character(string& name, string& description, int& health, int& damage) :
+#include "Character.h"
+
+Character::Character(std::string& name, std::string& description, int& health, int& damage) :
 	name(name), description(description), health(health), damage(damage)
 {
 	currentScene = nullptr;
@@ -48,14 +49,14 @@ int Character::attack(Character& enemy)
 	{
 		dmg = getCurrentWeapon()->getMagnitude();
 	}
-	dmg = min(dmg, rand() % dmg + 5); //[5,dmg]
+	dmg = std::min(dmg, rand() % dmg + 5); //[5,dmg]
 	enemy.takeHit(dmg);
 	return dmg;
 }
 
 void Character::takeHit(const int& damage)
 {
-	this->health = max<int>(this->health - damage, 0);
+	this->health = std::max<int>(this->health - damage, 0);
 }
 
 void Character::heal(const int& health)

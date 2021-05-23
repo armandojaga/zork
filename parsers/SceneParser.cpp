@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <map>
 
 #include "SceneParser.h"
 
@@ -8,7 +9,7 @@
 #include "../Item.h"
 #include "../Util.h"
 
-SceneParser::SceneParser() = default;
+using namespace std;
 
 list<Scene*> SceneParser::Parse(const string& sceneFile)
 {
@@ -25,7 +26,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 	const string NONE = "NONE";
 
 	ifstream sceneConfig;
-	sceneConfig.open("resources/scenes/"+ sceneFile + ".scene");
+	sceneConfig.open("resources/scenes/" + sceneFile + ".scene");
 	if (!sceneConfig)
 	{
 		string errorMessage = "Scene config file not found: " + sceneFile;
@@ -124,7 +125,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		tokens.pop_front();
 		if (value != NONE)
 		{
-			if (find(sceneItems.begin(), sceneItems.end(), value) == sceneItems.end())
+			if (Util::find<Item>(sceneItems, [&](const Item* s) { return s->getName() == value; }))
 			{
 				//container item has not loaded, item will be added to the container later
 				pendingItems.insert(make_pair(value, item));
@@ -177,7 +178,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 
 		string damage = tokens.front();
 		tokens.pop_front();
-		
+
 		int h = stoi(health);
 		int d = stoi(damage);
 		auto foe = new Foe(enemyName, enemyDescription, h, d);
@@ -202,16 +203,16 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 	{
 		for (const auto& pending : pendingScenesToLoad)
 		{
-			Parse(pending);
+			auto s = Parse(pending);
 		}
 	}
 
 	//assing scenes to paths
 	for (auto pending : pendingPaths)
 	{
-		if(!pending.loaded)
+		if (!pending.loaded)
 		{
-			auto _scene = Util::find<Scene>(scenes, [&](const Scene* s) {return s->getId() == pending.targetScene; });
+			auto _scene = Util::find<Scene>(scenes, [&](const Scene* s) { return s->getId() == pending.targetScene; });
 			pending.path->setScene(_scene);
 			pending.loaded = true;
 		}
@@ -231,7 +232,7 @@ list<string> SceneParser::Split(string& s) const
 	return tokens;
 }
 
-Item* SceneParser::getItem(list<Item*> items, const string& item)
+Item* SceneParser::getItem(const list<Item*>& items, const string& item)
 {
 	return Util::filter<Item*>(items, [&](const Item* i) { return i->getName() == item; }).front();
 }

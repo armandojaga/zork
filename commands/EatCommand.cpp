@@ -2,8 +2,11 @@
 #include "../Util.h"
 
 #include <iostream>
+#include <utility>
 
-EatCommand::EatCommand(Hero* hero, const string& item) : Command(hero), item(item)
+using namespace std;
+
+EatCommand::EatCommand(Hero* hero, string item) : AbstractCommand(hero), item(std::move(item))
 {
 };
 
@@ -29,5 +32,3 @@ void EatCommand::Execute()
 		cout << "You can't eat that" << endl;
 	}
 }
-
-EatCommand::~EatCommand() = default;

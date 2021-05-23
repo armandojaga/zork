@@ -1,14 +1,22 @@
-﻿#pragma once
-#include <list>
+﻿#ifndef ZORK_PARSERS_COMMAND_PARSER_H
+#define ZORK_PARSERS_COMMAND_PARSER_H
 
-#include "../commands/Command.h"
+#include "../commands/AbstractCommand.h"
 
 class CommandParser
 {
 private:
-	string ToUpper(string&) const;
+	void ToUpper(std::string&) const;
 public:
 	CommandParser();
-	Command* Parse(vector<string>& args, Hero*) const;
-	~CommandParser();
+	CommandParser(const CommandParser&) = delete;
+	CommandParser& operator =(const CommandParser&) = delete;
+	CommandParser(CommandParser&&) = delete;
+	CommandParser& operator=(CommandParser&&) = delete;
+
+	~CommandParser() = default;
+
+	AbstractCommand* Parse(std::vector<std::string>& args, Hero*) const;
 };
+
+#endif  //ZORK_PARSERS_COMMAND_PARSER_H

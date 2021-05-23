@@ -1,12 +1,12 @@
-﻿#pragma once
+﻿#ifndef ZORK_NAVIGATION_PATH_H
+#define ZORK_NAVIGATION_PATH_H
+
 #include <string>
 #include <unordered_map>
 
 class Scene;
 
-using namespace std;
-
-enum Direction
+enum eDirection
 {
 	NORTH,
 	SOUTH,
@@ -21,7 +21,7 @@ enum Direction
 	WRONG
 };
 
-static const unordered_map<string, Direction> directionMap = {
+static const std::unordered_map<std::string, eDirection> directionMap = {
 	{"NORTH", NORTH}, {"N", NORTH},
 	{"SOUTH", SOUTH}, {"S", SOUTH},
 	{"EAST", EAST}, {"E", EAST},
@@ -34,7 +34,7 @@ static const unordered_map<string, Direction> directionMap = {
 	{"DOWN", DOWN}, {"D", DOWN}
 };
 
-static const unordered_map<Direction, string> directionNameMap = {
+static const std::unordered_map<eDirection, std::string> directionNameMap = {
 	{NORTH, "north"},
 	{SOUTH, "south"},
 	{EAST, "east"},
@@ -48,25 +48,32 @@ static const unordered_map<Direction, string> directionNameMap = {
 class Path
 {
 private:
-	Direction direction;
+	eDirection direction;
 	Scene* scene;
 public:
-	Path(Direction direction);
-	~Path();
+	Path(eDirection direction);
+	Path(const Path&) = delete;
+	Path& operator =(const Path&) = delete;
+	Path(Path&&) = delete;
+	Path& operator=(Path&&) = delete;
 
-	Direction getDirection() const { return this->direction; }
+	~Path() = default;
+
+	eDirection getDirection() const { return this->direction; }
 	Scene* getScene() const { return this->scene; }
 	void setScene(Scene*);
 
-	static Direction DirectionFromName(string& directionName)
+	static eDirection DirectionFromName(std::string& directionName)
 	{
 		try
 		{
 			return directionMap.at(directionName);
 		}
-		catch (exception&)
+		catch (std::exception&)
 		{
 			return WRONG;
 		}
 	}
 };
+
+#endif  //ZORK_NAVIGATION_PATH_H
