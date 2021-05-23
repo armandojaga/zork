@@ -102,7 +102,7 @@ Following that you will be rescued and go back home.
 ## Map 
 [map]: #map "Map"
 
-![My Zork map](resources/map.PNG)
+![My Zork map](resources/map.png)
 
 ## Notes
 The code was built using the **10.0.17763.0** version of the *Windows SDK*.
