@@ -15,6 +15,7 @@ private:
 	list<Item*> items;
 	list<Item*> weapons;
 	list<Item*> ammo;
+	list<Item*> storyItems;
 	Scene* currentScene;
 	void _remove(Item*);
 	void _add(Item*);
@@ -38,6 +39,7 @@ public:
 	bool hasItems() const { return !this->items.empty(); }
 	list<Item*> getWeapons() const { return this->weapons; }
 	list<Item*> getAmmo() const { return this->ammo; }
+	list<Item*> getStoryItems() const { return this->storyItems; }
 
 	bool isAlive() const { return this->health > 0; }
 

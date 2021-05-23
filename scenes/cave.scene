@@ -6,5 +6,6 @@ DARK
 #PATHS#
 WEST|cabin
 #ITEMS#
+Radio|STORY|0|NONE
 #FOES#
-Bear|A huge bear|100|15
+Bear|A huge bear|100|15|Radio

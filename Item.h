@@ -16,7 +16,8 @@ enum ItemType
 	AMMO,
 	KEY,
 	OPEN_BOX,
-	NORMAL
+	NORMAL,
+	STORY
 };
 
 static const unordered_map<std::string, ItemType> itemTypeMap = {
@@ -28,7 +29,8 @@ static const unordered_map<std::string, ItemType> itemTypeMap = {
 	{"RANGE_WEAPON", RANGE_WEAPON},
 	{"AMMO", AMMO},
 	{"KEY", KEY},
-	{"NORMAL", NORMAL}
+	{"NORMAL", NORMAL},
+	{"STORY", STORY}
 };
 
 class Item
@@ -61,6 +63,7 @@ public:
 	bool IsLocked() const { return this->type == LOCKED_BOX; }
 	bool isWeapon() const { return this->type == WEAPON || this->type == RANGE_WEAPON; }
 	bool isAmmo() const { return this->type == AMMO; }
+	bool isStory() const { return this->type == STORY; }
 
 	bool operator==(Item& other) const { return this->name == other.name; }
 	friend bool operator==(Item* item, string _name) { return item->name == _name; }

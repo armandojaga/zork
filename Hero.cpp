@@ -55,6 +55,10 @@ void Hero::go(Direction& direction)
 			}
 		}
 		destination->getScene()->printBrief();
+		if((!isDark || getCurrentScene()->isIlluminated()) && !getCurrentScene()->hasVisited())
+		{
+			getCurrentScene()->setVisited(true);
+		}
 	}else
 	{
 		cout << "you can't go there" << endl;
@@ -173,4 +177,9 @@ void Hero::dropDead()
 {
 	cout << endl;
 	cout << "You died, this is the end of your adventure in this mysterious world" << endl;
+}
+
+bool Hero::canEscape()
+{
+	return getStoryItems().size() == 3;
 }

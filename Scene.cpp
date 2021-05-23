@@ -43,15 +43,14 @@ void Scene::setDescription(const string description)
 	this->description = description;
 }
 
-void Scene::setIlluminated(bool isBeingIlluminated)
+void Scene::setVisited(const bool visited)
 {
-	this->isBeingIlluminated = isBeingIlluminated;
+	this->visited = visited;
 }
 
-
-bool Scene::isIlluminated() const
+void Scene::setIlluminated(const bool isBeingIlluminated)
 {
-	return this->isBeingIlluminated;
+	this->isBeingIlluminated = isBeingIlluminated;
 }
 
 void Scene::setItems(list<Item*> items)
@@ -131,7 +130,13 @@ void Scene::printBrief()
 		{
 			if (!isDark() || isIlluminated()) {
 				if (enemy->isAlive()) {
-					cout << "You see a fearsome " << enemy->getName() << endl;
+					if (visited) {
+						cout << "You see a fearsome " << enemy->getName() << endl;
+					}
+					else
+					{
+						cout << enemy->getDescription() << " appeared in front of you" << endl;
+					}
 				}
 				else
 				{

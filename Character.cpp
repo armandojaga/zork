@@ -1,6 +1,12 @@
 #include "Character.h"
 #include <algorithm>
 
+Character::Character(string& name, string& description, int& health, int& damage) :
+	name(name), description(description), health(health), damage(damage)
+{
+	currentScene = nullptr;
+}
+
 void Character::_remove(Item* item)
 {
 	if (item->isWeapon())
@@ -10,6 +16,10 @@ void Character::_remove(Item* item)
 	else if (item->isAmmo())
 	{
 		this->ammo.remove(item);
+	}
+	else if (item->isStory())
+	{
+		this->storyItems.remove(item);
 	}
 	this->items.remove(item);
 }
@@ -24,19 +34,17 @@ void Character::_add(Item* item)
 	{
 		this->ammo.push_back(item);
 	}
+	else if (item->isStory())
+	{
+		this->storyItems.push_back(item);
+	}
 	this->items.push_back(item);
-}
-
-Character::Character(string& name, string& description, int& health, int& damage):
-	name(name), description(description), health(health), damage(damage)
-{
-	currentScene = nullptr;
 }
 
 int Character::attack(Character& enemy)
 {
 	int dmg = this->getDamage();
-	if(getCurrentWeapon())
+	if (getCurrentWeapon())
 	{
 		dmg = getCurrentWeapon()->getMagnitude();
 	}
@@ -58,7 +66,6 @@ void Character::heal(const int& health)
 void Character::dropItem(Item* item)
 {
 	_remove(item);
-	this->items.remove(item);
 	this->currentScene->addItem(item);
 }
 
@@ -71,6 +78,7 @@ void Character::dropAll()
 	this->items.clear();
 	this->weapons.clear();
 	this->ammo.clear();
+	this->storyItems.clear();
 }
 
 void Character::setCurrentScene(Scene* scene)
@@ -81,7 +89,6 @@ void Character::setCurrentScene(Scene* scene)
 void Character::addItem(Item* item)
 {
 	_add(item);
-	this->items.push_back(item);
 }
 
 void Character::remove(Item* item)
@@ -107,4 +114,5 @@ Character::~Character()
 	this->items.clear();
 	this->weapons.clear();
 	this->ammo.clear();
+	this->storyItems.clear();
 }

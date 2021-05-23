@@ -182,7 +182,7 @@ list<Scene*> SceneParser::Parse(const string& sceneFile)
 		int d = stoi(damage);
 		auto foe = new Foe(enemyName, enemyDescription, h, d);
 
-		if (!tokens.empty())
+		while (!tokens.empty())
 		{
 			Item* item = getItem(sceneItems, tokens.front());
 			tokens.pop_front();

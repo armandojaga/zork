@@ -60,6 +60,13 @@ void Game::Loop()
 		ExecuteCommand(command);
 		
 		tokens.clear();
+		if(hero->canEscape())
+		{
+			cout << endl;
+			cout << "You have picked all the parts and fixed the radio" << endl;
+			cout << "You called for help and the next day the help arrived, you've been saved." << endl;
+			break;
+		}
 	}
 	cout << endl;
 	cout << "Thank you for playing" << endl;

@@ -22,6 +22,7 @@ private:
 	list<Path*> paths;
 	list<Item*> items;
 	list<Character*> enemies;
+	bool visited;
 
 public:
 	Scene(bool);
@@ -31,7 +32,7 @@ public:
 	string getName() const { return this->name; }
 	string getShortDescription() const { return this->shortDescription; }
 	string getDescription() const { return this->description; }
-	bool isDark() const { return this->dark; }
+	
 	bool hasEnemies() const { return !this->enemies.empty(); }
 	list<Character*> getEnemies() const { return this->enemies; }
 	bool hasItems() const { return !this->items.empty(); }
@@ -44,9 +45,13 @@ public:
 	void setName(string name);
 	void setShortDescription(string shortDescription);
 	void setDescription(string description);
+
+	bool hasVisited() const { return this->visited; }
+	bool isIlluminated() const { return this->isBeingIlluminated; }
+	bool isDark() const { return this->dark; }
 	
 	void setIlluminated(bool);
-	bool isIlluminated() const;
+	void setVisited(bool);
 
 	void addPath(Path* path);
 	void setItems(list<Item*> items);

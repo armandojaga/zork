@@ -6,5 +6,6 @@ This seems to be the heart of the forest
 SW|forest
 #ITEMS#
 Knife|WEAPON|10|NONE
+Antenna|STORY|0|NONE
 #FOES#
-Goblin|A forest goblin|50|0|Knife
+Goblin|A forest goblin|50|5|Knife|Antenna

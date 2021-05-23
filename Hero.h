@@ -13,5 +13,6 @@ public:
 	Item* getCurrentWeapon() override;
 	void attack(Character& enemy, Item* weapon);
 	void dropDead() override;
+	bool canEscape();
 };
 
