@@ -1,7 +1,7 @@
-#include "CommandParser.h"
-
+#include <iostream>
 #include <algorithm>
 
+#include "CommandParser.h"
 #include "../commands/AttackCommand.h"
 #include "../commands/DropCommand.h"
 #include "../commands/EatCommand.h"
@@ -14,25 +14,26 @@
 #include "../commands/NonCommand.h"
 #include "../commands/TakeCommand.h"
 
-string CommandParser::ToUpper(string& str) const
+using namespace std;
+
+void CommandParser::ToUpper(string& str) const
 {
 	transform(str.begin(), str.end(), str.begin(), toupper);
-	return str;
 }
 
 CommandParser::CommandParser() = default;
 
-Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
+AbstractCommand* CommandParser::Parse(vector<string>& args, Hero* hero) const
 {
 	if (args.empty())
 	{
 		return new EmptyCommand();
 	}
-	Command* command = nullptr;
+	AbstractCommand* command = nullptr;
 	string userCommand = args[0];
 	args.erase(args.begin());
 	ToUpper(userCommand);
-	const CommandType type = Command::GetCommand(userCommand);
+	const eCommandType type = AbstractCommand::GetCommand(userCommand);
 	switch (type)
 	{
 	case GO:
@@ -45,7 +46,7 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 		{
 			userCommand = args[0];
 			ToUpper(userCommand);
-			Direction dir = Path::DirectionFromName(userCommand);
+			const eDirection dir = Path::DirectionFromName(userCommand);
 			if (dir != WRONG)
 			{
 				command = new GoCommand(hero, dir);
@@ -128,14 +129,15 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 			command = new OpenCommand(hero, userCommand);
 		}
 		break;
-	default:
+	case EMPTY:
 		{
-			const Direction d = Path::DirectionFromName(userCommand);
+			const eDirection d = Path::DirectionFromName(userCommand);
 			if (d != WRONG)
 			{
 				command = new GoCommand(hero, d);
 			}
 		}
+		break;
 	}
 	args.clear();
 	if (!command)
@@ -144,5 +146,3 @@ Command* CommandParser::Parse(vector<string>& args, Hero* hero) const
 	}
 	return command;
 }
-
-CommandParser::~CommandParser() = default;

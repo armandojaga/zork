@@ -1,5 +1,6 @@
-﻿#pragma once
-#include <iostream>
+﻿#ifndef ZORK_CHARACTERS_CHARACTER_H
+#define ZORK_CHARACTERS_CHARACTER_H
+
 #include <string>
 
 #include "../Item.h"
@@ -7,39 +8,42 @@
 
 class Scene;
 
-using namespace std;
-
 class Character
 {
 private:
-	list<Item*> items;
-	list<Item*> weapons;
-	list<Item*> ammo;
-	list<Item*> storyItems;
+	std::list<Item*> items;
+	std::list<Item*> weapons;
+	std::list<Item*> ammo;
+	std::list<Item*> storyItems;
 	Scene* currentScene;
 	void _remove(Item*);
 	void _add(Item*);
 
 protected:
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int health;
 	int damage;
 
 public:
-	Character(string& name, string& description, int& health, int& damage);
+	Character(std::string& name, std::string& description, int& health, int& damage);
+	Character(const Character&) = delete;
+	Character& operator =(const Character&) = delete;
+	Character(Character&&) = delete;
+	Character& operator=(Character&&) = delete;
+
 	virtual ~Character();
 
-	string getName() const { return this->name; }
-	string getDescription() const { return this->description; }
-	list<Item*> getItems() const { return this->items; }
+	std::string getName() const { return this->name; }
+	std::string getDescription() const { return this->description; }
+	std::list<Item*> getItems() const { return this->items; }
 	int getDamage() const { return this->damage; }
 	int getHealth() const { return this->health; }
 	Scene* getCurrentScene() const { return this->currentScene; }
 	bool hasItems() const { return !this->items.empty(); }
-	list<Item*> getWeapons() const { return this->weapons; }
-	list<Item*> getAmmo() const { return this->ammo; }
-	list<Item*> getStoryItems() const { return this->storyItems; }
+	std::list<Item*> getWeapons() const { return this->weapons; }
+	std::list<Item*> getAmmo() const { return this->ammo; }
+	std::list<Item*> getStoryItems() const { return this->storyItems; }
 
 	bool isAlive() const { return this->health > 0; }
 
@@ -58,3 +62,5 @@ public:
 	virtual Item* getCurrentWeapon() = 0;
 	virtual void dropDead() = 0;
 };
+
+#endif  //ZORK_CHARACTERS_CHARACTER_H

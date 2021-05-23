@@ -1,15 +1,24 @@
-#pragma once
+#ifndef ZORK_COMMANDS_ATTACK_COMMAND_H
+#define ZORK_COMMANDS_ATTACK_COMMAND_H
 
-#include "Command.h"
+#include "AbstractCommand.h"
 
 class Hero;
 
-class AttackCommand : public Command
+class AttackCommand : public AbstractCommand
 {
 private:
-	const vector<string> params;
+	const std::vector<std::string> params;
 public:
-	AttackCommand(Hero* hero, const vector<string>& params);
-	~AttackCommand() override;
+	AttackCommand(Hero* hero, const std::vector<std::string>& params);
+	AttackCommand(const AttackCommand&) = delete;
+	AttackCommand& operator =(const AttackCommand&) = delete;
+	AttackCommand(AttackCommand&&) = delete;
+	AttackCommand& operator=(AttackCommand&&) = delete;
+
+	~AttackCommand() override = default;
+
 	void Execute() override;
 };
+
+#endif  //ZORK_COMMANDS_ATTACK_COMMAND_H

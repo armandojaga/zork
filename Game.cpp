@@ -1,16 +1,15 @@
 #include <iostream>
-
-#include "Game.h"
-
 #include <sstream>
 
+#include "Game.h"
 #include "Util.h"
 #include "characters/Hero.h"
 #include "parsers/SceneParser.h"
 
+using namespace std;
+
 Game::Game()
 {
-
 	string name = "Mando";
 	string desc = "Castaway";
 	int health = 100;
@@ -18,32 +17,32 @@ Game::Game()
 	hero = new Hero(name, desc, health, attack);
 	sceneParser = new SceneParser();
 	commandParser = new CommandParser();
-	
+
 	const string start = "start";
 	list<Scene*> scenes = sceneParser->Parse(start);
 	const auto currentScene = Util::find<Scene>(scenes, [&](const Scene* s) { return s->getId() == start; });
 	hero->setCurrentScene(currentScene);
-	
+
 	scenes.clear();
 	delete sceneParser;
 }
 
-void Game::Start()
+void Game::Start() const
 {
 	cout << "Welcome to my take on Zork!" << endl;
 	cout << "You were on a cruise enjoying your vacation when a sudden storm struck and the ship sunk." << endl;
-	cout<< "You washed ashore and managed to survive, finding yourself in an unknown land." << endl;
+	cout << "You washed ashore and managed to survive, finding yourself in an unknown land." << endl;
 	cout << endl;
 	hero->getCurrentScene()->printBrief();
 	Loop();
 }
 
-void Game::Loop()
+void Game::Loop() const
 {
-	string input;
 	vector<string> tokens;
-	while(hero->isAlive())
+	while (hero->isAlive())
 	{
+		string input;
 		cout << "> ";
 		//get user input
 		getline(cin, input);
@@ -56,11 +55,11 @@ void Game::Loop()
 			tokens.push_back(token);
 		}
 
-		Command* command = commandParser->Parse(tokens, hero);
+		AbstractCommand* command = commandParser->Parse(tokens, hero);
 		ExecuteCommand(command);
-		
+
 		tokens.clear();
-		if(hero->canEscape())
+		if (hero->canEscape())
 		{
 			cout << endl;
 			cout << "You have picked all the parts and fixed the radio" << endl;
@@ -72,12 +71,8 @@ void Game::Loop()
 	cout << "Thank you for playing" << endl;
 }
 
-void Game::ExecuteCommand(Command* command)
+void Game::ExecuteCommand(AbstractCommand* command)
 {
 	command->Execute();
 	cout << endl;
-}
-
-Game::~Game()
-{
 }

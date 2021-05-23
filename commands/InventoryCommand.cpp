@@ -1,10 +1,6 @@
 #include "InventoryCommand.h"
 
-InventoryCommand::InventoryCommand(Hero* hero): Command(hero)
-{
-}
-
-InventoryCommand::~InventoryCommand()
+InventoryCommand::InventoryCommand(Hero* hero): AbstractCommand(hero)
 {
 }
 

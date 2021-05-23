@@ -1,10 +1,6 @@
 #include "LookCommand.h"
 
-LookCommand::LookCommand(Hero* hero): Command(hero)
-{
-}
-
-LookCommand::~LookCommand()
+LookCommand::LookCommand(Hero* hero): AbstractCommand(hero)
 {
 }
 

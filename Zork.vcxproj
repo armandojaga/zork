@@ -155,7 +155,7 @@
     <ClCompile Include="characters\Foe.cpp" />
     <ClCompile Include="characters\Hero.cpp" />
     <ClCompile Include="commands\AttackCommand.cpp" />
-    <ClCompile Include="commands\Command.cpp" />
+    <ClCompile Include="commands\AbstractCommand.cpp" />
     <ClCompile Include="commands\DropCommand.cpp" />
     <ClCompile Include="commands\EatCommand.cpp" />
     <ClCompile Include="commands\EmptyCommand.cpp" />
@@ -179,7 +179,7 @@
     <ClInclude Include="characters\Foe.h" />
     <ClInclude Include="characters\Hero.h" />
     <ClInclude Include="commands\AttackCommand.h" />
-    <ClInclude Include="commands\Command.h" />
+    <ClInclude Include="commands\AbstractCommand.h" />
     <ClInclude Include="commands\DropCommand.h" />
     <ClInclude Include="commands\EatCommand.h" />
     <ClInclude Include="commands\EmptyCommand.h" />

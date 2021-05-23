@@ -3,9 +3,11 @@
 
 #include <iostream>
 
+using namespace std;
+
 class Foe;
 
-AttackCommand::AttackCommand(Hero* hero, const vector<string>& params) : Command(hero), params(params)
+AttackCommand::AttackCommand(Hero* hero, const vector<string>& params) : AbstractCommand(hero), params(params)
 {
 };
 
@@ -80,5 +82,3 @@ void AttackCommand::Execute()
 	}
 	hero->attack(*foe, weapon);
 }
-
-AttackCommand::~AttackCommand() = default;

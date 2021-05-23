@@ -1,12 +1,13 @@
+#include <iostream>
+#include <utility>
+
 #include "OpenCommand.h"
 #include "../Util.h"
 #include "../navigation/Scene.h"
 
-OpenCommand::OpenCommand(Hero* hero, const string& item): Command(hero), item(item)
-{
-}
+using namespace std;
 
-OpenCommand::~OpenCommand()
+OpenCommand::OpenCommand(Hero* hero, string item): AbstractCommand(hero), item(std::move(item))
 {
 }
 

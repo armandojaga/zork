@@ -1,16 +1,15 @@
-﻿#include "HelpCommand.h"
-
+﻿#include <iostream>
 #include <fstream>
 
-HelpCommand::HelpCommand() : Command(nullptr)
+#include "HelpCommand.h"
+
+using namespace std;
+
+HelpCommand::HelpCommand() : AbstractCommand(nullptr)
 {
 }
 
-HelpCommand::HelpCommand(Hero* hero): Command(hero)
-{
-}
-
-HelpCommand::~HelpCommand()
+HelpCommand::HelpCommand(Hero* hero): AbstractCommand(hero)
 {
 }
 
@@ -18,7 +17,7 @@ void HelpCommand::Execute()
 {
 	ifstream help("help.txt");
 	string line;
-	while(getline(help,line))
+	while (getline(help, line))
 	{
 		cout << line << endl;
 	}
