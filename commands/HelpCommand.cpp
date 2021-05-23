@@ -15,7 +15,7 @@ HelpCommand::HelpCommand(Hero* hero): AbstractCommand(hero)
 
 void HelpCommand::Execute()
 {
-	ifstream help("help.txt");
+	ifstream help("./resources/help.txt");
 	string line;
 	while (getline(help, line))
 	{
